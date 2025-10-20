@@ -1,8 +1,12 @@
 const inputNombre = document.getElementById("inputNombre");
 const btnIngresar = document.getElementById("ingresar");
 const mensaje = document.getElementById("mensaje");
+const btnAdministrador = document.getElementById("administrador");
 
 btnIngresar.onclick = ingresar;
+btnAdministrador.onclick = () => {
+  window.location.replace("../administrator/login.html");
+}
 
 function ingresar() {
   const nombre = inputNombre.value;
@@ -10,6 +14,6 @@ function ingresar() {
     mensaje.innerText = "Por favor, ingrese su nombre...";
   } else {
     mensaje.innerText = "";
-    window.location.replace("../views/productos.html");
+    window.location.replace("./productos.html");
   }
 }

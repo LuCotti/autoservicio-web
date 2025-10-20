@@ -3,5 +3,5 @@ const btnFinalizarCompra = document.getElementById("finalizar-compra");
 
 btnFinalizarCompra.onclick = () => {
   console.log("Click!");
-  window.location.replace("../views/ticket.html");
+  window.location.replace("./ticket.html");
 }
