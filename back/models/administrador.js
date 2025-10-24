@@ -9,19 +9,18 @@ const Administrador = sequelize.define("Administrador",
       autoIncrement: true,
     },
     mail: {
-      type: DataTypes.TEXT,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
     clave: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     }
   },
   {
     tableName: "administradores",
-    timestamps: true,
-    createdAt: true,
-    updatedAt: true
+    timestamps: true
   }
 );
 
