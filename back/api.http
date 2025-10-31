@@ -7,9 +7,39 @@ POST http://localhost:3000/administrator/register
 Content-Type: application/json
 
 {
-  "user": "gonza@howsef.com",
-  "pass": "Inicio4321"
+  "user": "gonza@admin.com",
+  "pass": "Inicio1234."
 }
+
+### login administrador falta pass deberia devolver error
+
+POST http://localhost:3000/administrator
+Content-Type: application/json
+
+{ 
+  "mail": "gonza@admin.com"
+}
+
+### login administrador credenciales invalidas
+
+POST http://localhost:3000/administrator
+Content-Type: application/json
+
+{
+  "mail": "gonza@admin.com",
+  "pass": "Inicio123"
+}
+
+### login administrador credenciales correctas
+
+POST http://localhost:3000/administrator
+Content-Type: application/json
+
+{
+  "mail": "gonza@admin.com",
+  "pass": "Inicio1234."
+}
+
 
 ### RECUPERAR UN JUEGO POR ID (deberia devolver TF clasic)
 GET http://localhost:1234/juegos/68c1a4e2806505497525fbe5
