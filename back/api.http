@@ -47,12 +47,19 @@ POST http://localhost:3000/producto
 Content-Type: application/json
 
 {
-  "nombre": "Plafon estilo Nordico",
-  "precio": 18000,
+  "nombre": "Plafon estilo Sovietico",
+  "precio": 15000,
   "imagen": "Una URL",
   "categoria": "Plafon",
   "activo": false
 }
+
+### RECUPERAR productos
+GET http://localhost:3000/producto
+
+### RECUPERAR producto id
+GET http://localhost:3000/producto/2
+
 ### RECUPERAR UN JUEGO POR ID (deberia devolver TF clasic)
 GET http://localhost:1234/juegos/68c1a4e2806505497525fbe5
 
