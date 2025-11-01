@@ -7,7 +7,7 @@ const sectionProductos = document.getElementById("section-productos");
 const categoriaA = "Faroles";
 const categoriaB = "Plafones";
 
-let productos = [
+const productos = [
   {
     id: 1,
     nombre: "PRUEBA 01",
@@ -108,6 +108,20 @@ function mostrarProductos(categoria) {
     if (categoria === p.categoria) {
       const div = crearCard(p);
       sectionProductos.appendChild(div);
+
+      if (estaGuardado(p.id)) {
+        const btnQuitar = document.getElementById(`btn-quitar-${p.id}`);
+        btnQuitar.addEventListener("click", () => {
+          quitarProducto(p);
+          window.location.reload();
+        });
+      } else {
+        const btnAgregar = document.getElementById(`btn-agregar-${p.id}`);
+        btnAgregar.addEventListener("click", () => {
+          guardarProducto(p);
+          window.location.reload();
+        });
+      }
     } else {
       continue;
     }
@@ -122,11 +136,46 @@ function crearCard(producto) {
   <p>Producto Nº: ${producto.id}</p>
   <p>Nombre: ${producto.nombre}</p>
   <p>Precio: ${producto.precio}</p>
-  <button>Agregar o quitar del carrito</button>
+  ${estaGuardado(producto.id) ? `<button id="btn-quitar-${producto.id}">Quitar del carrito</button>` : `<button id="btn-agregar-${producto.id}">Agregar al carrito</button>`}
   `;
   return div;
 }
 
 function eliminarElementos(contenedor) {
   while (contenedor.firstChild) contenedor.removeChild(contenedor.firstChild);
+}
+
+function traerGuardados() {
+  return JSON.parse(localStorage.getItem("productos")) || [];
+}
+
+function guardarProducto(nuevoProducto) {
+  let productos = traerGuardados();
+  productos.push(nuevoProducto);
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
+
+function estaGuardado(id) {
+  const productos = traerGuardados();
+  for (let p of productos) {
+    if (id === p.id) return true;
+  }
+  return false;
+}
+
+function quitarProducto(producto) {
+  let productos = traerGuardados();
+  const index = obtenerPosicion(producto);
+  productos.splice(index, 1);
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
+
+function obtenerPosicion(producto) {
+  const productos = traerGuardados();
+  let index = 0;
+  for (let p of productos) {
+    if (p.id === producto.id) break;
+    index++;
+  }
+  return index;
 }
