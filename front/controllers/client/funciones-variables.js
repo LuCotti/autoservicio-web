@@ -1,5 +1,4 @@
 const sectionProductos = document.getElementById("section-productos");
-const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 const categoriaA = "Faroles";
 const categoriaB = "Plafones";
 
@@ -97,6 +96,7 @@ const productos = [
 ];
 
 
+
 function mostrarProductos(categoria) {
   eliminarElementos(sectionProductos);
   for (let p of productos) {
@@ -119,35 +119,6 @@ function mostrarProductos(categoria) {
       }
     } else {
       continue;
-    }
-  }
-}
-
-function mostrarGuardados() {
-  eliminarElementos(sectionProductos);
-  const productos = traerGuardados();
-  if (productos.length === 0) {
-    sectionProductos.innerText = "No hay productos en el carrito";
-    btnFinalizarCompra.hidden = true;
-  } else {
-    sectionProductos.innerText = "";
-    for (let p of productos) {
-      const div = crearCard(p);
-      sectionProductos.appendChild(div);
-
-      if (estaGuardado(p.id)) {
-        const btnQuitar = document.getElementById(`btn-quitar-${p.id}`);
-        btnQuitar.addEventListener("click", () => {
-          quitarProducto(p);
-          window.location.reload();
-        });
-      } else {
-        const btnAgregar = document.getElementById(`btn-agregar-${p.id}`);
-        btnAgregar.addEventListener("click", () => {
-          guardarProducto(p);
-          window.location.reload();
-        });
-      }
     }
   }
 }
@@ -204,4 +175,4 @@ function obtenerPosicion(producto) {
   return index;
 }
 
-export { sectionProductos, categoriaA, categoriaB, productos, mostrarProductos, mostrarGuardados, crearCard, eliminarElementos, traerGuardados, guardarProducto, estaGuardado, quitarProducto, obtenerPosicion };
+export { sectionProductos, categoriaA, categoriaB, productos, mostrarProductos, crearCard, eliminarElementos, traerGuardados, guardarProducto, estaGuardado, quitarProducto, obtenerPosicion };
