@@ -1,4 +1,5 @@
 const sectionProductos = document.getElementById("section-productos");
+const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 const categoriaA = "Faroles";
 const categoriaB = "Plafones";
 
@@ -117,6 +118,7 @@ function mostrarGuardados() {
   const productos = traerGuardados();
   if (productos.length === 0) {
     sectionProductos.innerText = "No hay productos en el carrito";
+    btnFinalizarCompra.hidden = true;
   } else {
     sectionProductos.innerText = "";
     for (let p of productos) {
