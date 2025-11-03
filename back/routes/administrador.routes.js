@@ -1,4 +1,4 @@
-const Administrador = require("../models/administrador");
+const Administrador = require("../models/administrador.js");
 const { hashPassword, comparePassword } = require('../utils/bcrypt.js');
 const router = require("express").Router();
 
