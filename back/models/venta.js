@@ -9,7 +9,7 @@ const Venta = sequelize.define("Venta",
       autoIncrement: true,
     },
     nombreCliente: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     },
     fecha: {
@@ -17,7 +17,7 @@ const Venta = sequelize.define("Venta",
       allowNull: false
     },
     precioTotal: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false
     }
   },
