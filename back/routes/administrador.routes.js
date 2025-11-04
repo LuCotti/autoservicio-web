@@ -27,7 +27,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  res.send("Hice un get a administrator usando el Router");
+  res.render('../views/login');
 });
 
 router.post("/", async(req, res) => {
