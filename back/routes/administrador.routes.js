@@ -57,7 +57,8 @@ router.post("/", async(req, res) => {
             administrador: {
                 id: admin.id,
                 mail: admin.mail
-            }
+            },
+            redirectTo: "/administrator/dashboard"
         });
 
     } catch (error) {
@@ -65,5 +66,9 @@ router.post("/", async(req, res) => {
         res.status(500).json({ error: "Error interno del servidor" });
     }
 })
+
+router.get("/dashboard", (req, res) => {
+    res.render('../views/dashboard');
+});
 
 module.exports = router;

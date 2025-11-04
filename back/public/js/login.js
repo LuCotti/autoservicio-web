@@ -30,7 +30,9 @@ btnIngresar.addEventListener("click", async() => {
         // Éxito (status 200)
         const data = await response.json();
 
-        window.location.href = './dashboard.ejs'; // Redirige al panel de usuario
+        //window.location.href = './dashboard.ejs'; 
+        console.log(data);
+        window.location.href = data.redirectTo;
       } else {
         // Error (Ej: status 401 o 400)
         const errorData = await response.json();
