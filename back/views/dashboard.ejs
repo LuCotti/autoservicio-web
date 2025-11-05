@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../front/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
     <title>Dashboard</title>
   </head>
   <body>
@@ -17,7 +17,35 @@
     </nav>
     <main>
       <button id="btn-agregar-producto">Agregar producto</button>
-      <section id="section-productos"></section>
+      <section id="section-productos">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Categoría</th>
+              <th>Activo</th>
+              <th colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% productos.forEach((producto) => { %>
+              <tr>
+                <td><%= producto.id %></td>
+                <td><%= producto.nombre %></td>
+                <td><%= producto.precio %></td>
+                <td><img src="<%= producto.imagen %>" alt="producto <%= producto.id %>" width="100"></td>
+                <td><%= producto.categoria %></td>
+                <td><%= producto.activo %></td>
+                <td><button id="btn-modificar-<%= producto.id %>">Modificar</button></td>
+                <td><button id="btn-bajar-<%= producto.id %>">Dar de baja</button></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </section>
     </main>
   </body>
 </html>
