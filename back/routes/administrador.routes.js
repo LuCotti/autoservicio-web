@@ -27,7 +27,8 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  res.render('../views/login');
+    const url = "http://localhost:5501";
+    res.render('../views/login', { url: url });
 });
 
 router.post("/", async(req, res) => {
