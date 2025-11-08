@@ -137,4 +137,19 @@ router.put("/activo/:id", async (req, res) => {
   }
 });
 
+// Eliminar un producto
+router.delete("/:id", async (req, res) => {
+  try {
+    const eliminado = await Producto.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    return res.status(200).send(eliminado);
+  } catch(error) {
+    console.log(error);
+    return res.status(500).send({ message: "Error interno" });
+  }
+});
+
 module.exports = router;
