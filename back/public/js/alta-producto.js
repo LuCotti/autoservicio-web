@@ -1,31 +1,18 @@
 import { serverUrl } from './variables.js';
-const inputNombre = document.getElementById('input-nombre');
-const inputPrecio = document.getElementById('input-precio');
-const inputImagen = document.getElementById('input-imagen');
-const inputCategoria = document.getElementById('input-categoria');
-const btnAgregar = document.getElementById('btn-agregar');
+const formAgregar = document.getElementById('form-agregar');
 
-btnAgregar.onclick = agregarProducto;
+formAgregar.addEventListener("submit", (e) => {
+  e.preventDefault();
+  agregarProducto();
+});
 
 async function agregarProducto() {
-  const nombre = inputNombre.value || undefined;
-  const precio = inputPrecio.value || undefined;
-  const imagen = inputImagen.value || undefined;
-  const categoria = inputCategoria.value || undefined;
-  const body = {
-    nombre: nombre,
-    precio: precio,
-    imagen: imagen,
-    categoria: categoria
-  };
+  const formData = new FormData(formAgregar);
 
   try {
     const response = await fetch(`${serverUrl}/producto`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
+      body: formData
     });
 
     if (!response.ok) {

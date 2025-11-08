@@ -18,11 +18,13 @@
       <a href="/administrator/dashboard">Cancelar</a>
     </nav>
     <main>
-      <input type="text" id="input-nombre" placeholder="Ingrese el nombre...">
-      <input type="number" id="input-precio" placeholder="Ingrese el precio...">
-      <input type="text" id="input-imagen" placeholder="Ingrese la imagen...">
-      <input type="text" id="input-categoria" placeholder="Ingrese la categoria...">
-      <button id="btn-agregar">Agregar</button>
+      <form id="form-agregar">
+        <input type="text" name="nombre" placeholder="Ingrese el nombre...">
+        <input type="number" name="precio" placeholder="Ingrese el precio...">
+        <input type="file" name="imagen">
+        <input type="text" name="categoria" placeholder="Ingrese la categoria...">
+        <button type="submit">Agregar</button>
+      </form>
     </main>
     <script type="module" src="../public/js/alta-producto.js"></script>
   </body>

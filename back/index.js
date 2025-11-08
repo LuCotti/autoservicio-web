@@ -11,6 +11,7 @@ app.disable('x-powered-by');
 app.use(express.json());
 app.use(cors('*'))
 app.use("/public", express.static("public"));
+app.use("/uploads", express.static("uploads"));
 app.set("view engine", "ejs");
 app.set("views", "./views"); 
 

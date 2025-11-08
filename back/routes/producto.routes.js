@@ -1,10 +1,13 @@
 const Producto = require("../models/producto.js");
 const router = require("express").Router();
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 // Crear producto
-router.post("/", async(req, res) => {
+router.post("/", upload.single("imagen"), async(req, res) => {
   try{
-    const { nombre, precio, imagen, categoria } = req.body;
+    const { nombre, precio, categoria } = req.body;
+    const imagen = req.file.filename;
     //todo: validar que vengan todos los datos.
     const resultado = await Producto.create({
       nombre: nombre,
