@@ -18,7 +18,7 @@
       <a href="/administrator">Cerrar sesión</a>
     </nav>
     <main>
-      <button id="btn-agregar-producto">Agregar producto</button>
+      <button id="btn-agregar-producto"><a href="/producto/alta">Agregar producto</a></button>
       <section id="section-productos">
         <table>
           <thead>
@@ -32,22 +32,23 @@
               <th colspan="2">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="table-body">
             <% productos.forEach((producto) => { %>
               <tr>
-                <td><%= producto.id %></td>
+                <td id="id-<%= producto.id %>"><%= producto.id %></td>
                 <td><%= producto.nombre %></td>
                 <td><%= producto.precio %></td>
                 <td><img src="<%= producto.imagen %>" alt="producto <%= producto.id %>" width="100"></td>
                 <td><%= producto.categoria %></td>
                 <td><%= producto.activo %></td>
-                <td><button id="btn-modificar-<%= producto.id %>">Modificar</button></td>
-                <td><button id="btn-bajar-<%= producto.id %>">Dar de baja</button></td>
+                <td><button class="modificar" id="btn-modificar-<%= producto.id %>">Modificar</button></td>
+                <td><button class="bajar" id="btn-bajar-<%= producto.id %>">Dar de baja</button></td>
               </tr>
             <% }); %>
           </tbody>
         </table>
       </section>
     </main>
+    <script type="module" src="../public/js/dashboard.js"></script>
   </body>
 </html>
