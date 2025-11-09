@@ -1,4 +1,4 @@
-import { sectionProductos, eliminarElementos, traerGuardados, quitarProducto } from './funciones-variables.js';
+import { apiUrl, sectionProductos, eliminarElementos, traerGuardados, quitarProducto } from './funciones-variables.js';
 const btnTema = document.getElementById("btn-tema");
 const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 
@@ -51,7 +51,7 @@ function crearCard(producto) {
   const div = document.createElement("div");
   div.id = `div-producto-${producto.id}`;
   div.innerHTML = `
-  <img src="${producto.imagen}">
+  <img src="${apiUrl}/uploads/${producto.imagen}">
   <p>Producto Nº: ${producto.id}</p>
   <p>Nombre: ${producto.nombre}</p>
   <p>Precio: ${producto.precio}</p>

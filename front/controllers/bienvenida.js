@@ -1,17 +1,15 @@
+import { apiUrl } from "./funciones-variables.js";
 const btnTema = document.getElementById("btn-tema");
 const inputNombre = document.getElementById("input-nombre");
 const btnIngresar = document.getElementById("btn-ingresar");
 const mensaje = document.getElementById("p-mensaje");
 const btnAdministrador = document.getElementById("btn-administrador");
-const loginURL = 'http://localhost:3000'
 
 btnIngresar.onclick = () => {
   location.assign("./productos.html");
 };
 btnAdministrador.onclick = () => {
-  //console.log("asd");
   ingresar();
-  //window.location.replace("../administrator/login.html");
 }
 
 async function ingresar() {
@@ -22,7 +20,7 @@ async function ingresar() {
     mensaje.innerText = "";
     localStorage.setItem("cliente", nombre);
 
-    const  response = await fetch(loginURL + '/administrator')
+    const  response = await fetch(apiUrl + '/administrator')
     console.log(response);
     window.location.replace(response.url);
   }
