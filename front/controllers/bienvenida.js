@@ -5,12 +5,8 @@ const btnIngresar = document.getElementById("btn-ingresar");
 const mensaje = document.getElementById("p-mensaje");
 const btnAdministrador = document.getElementById("btn-administrador");
 
-btnIngresar.onclick = () => {
-  location.assign("./productos.html");
-};
-btnAdministrador.onclick = () => {
-  ingresar();
-}
+btnIngresar.onclick = ingresar;
+btnAdministrador.onclick = irALogin;
 
 async function ingresar() {
   const nombre = inputNombre.value;
@@ -19,9 +15,11 @@ async function ingresar() {
   } else {
     mensaje.innerText = "";
     localStorage.setItem("cliente", nombre);
-
-    const  response = await fetch(apiUrl + '/administrator')
-    console.log(response);
-    window.location.replace(response.url);
+    location.assign("./productos.html");
   }
+}
+
+async function irALogin() {
+  const  response = await fetch(apiUrl + '/administrator')
+  location.assign(response.url);
 }
