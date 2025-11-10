@@ -7,6 +7,7 @@ const productoRouter = require("./routes/producto.routes.js");
 const ventaRouter = require("./routes/venta.routes.js");
 
 
+
 app.disable('x-powered-by');
 app.use(express.json());
 app.use(cors('*'))
