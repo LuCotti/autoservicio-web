@@ -10,15 +10,15 @@
     <header>
       <img src="/public/favicon.ico" alt="Logo">
       <h1>Bichito de luz</h1>      
+      <h1>Alumnos: COTTI, Luciano Ariel y RODRIGUEZ, Gonzalo Ezequiel</h1>
       <h1>Dashboard</h1>
-      <h2>Alumnos: COTTI, Luciano Ariel y RODRIGUEZ, Gonzalo Ezequiel</h2>
       <button id="btn-tema">Cambiar tema</button>
     </header>
     <nav>
-      <a href="/administrator">Cerrar sesión</a>
+      <button id="btn-agregar-producto">Agregar producto</button>
+      <button id="btn-cerrar-sesion">Cerrar sesión</button>
     </nav>
     <main>
-      <button id="btn-agregar-producto"><a href="/producto/alta">Agregar producto</a></button>
       <section id="section-productos">
         <% if (productos.length === 0) { %>
           <p>No hay productos en la base de datos.</p>

@@ -1,6 +1,22 @@
 import { apiUrl, sectionProductos, eliminarElementos, traerGuardados, quitarProducto } from './funciones-variables.js';
 const btnTema = document.getElementById("btn-tema");
+const btnProductos = document.getElementById("btn-productos");
+const btnCarrito = document.getElementById("btn-carrito");
+const btnSalir = document.getElementById("btn-salir");
 const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
+
+btnProductos.onclick = () => {
+  location.assign("./productos.html");
+};
+
+btnCarrito.onclick = () => {
+  location.reload();
+};
+
+btnSalir.onclick = () => {
+  localStorage.clear();
+  location.replace("./bienvenida.html");
+};
 
 btnFinalizarCompra.onclick = () => {
   window.location.replace("./ticket.html");

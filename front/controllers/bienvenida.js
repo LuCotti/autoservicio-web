@@ -15,7 +15,7 @@ async function ingresar() {
   } else {
     mensaje.innerText = "";
     localStorage.setItem("cliente", nombre);
-    location.assign("./productos.html");
+    location.replace("./productos.html");
   }
 }
 

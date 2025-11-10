@@ -1,5 +1,10 @@
 import { serverUrl } from './variables.js';
+const btnCancelar = document.getElementById("btn-cancelar");
 const formAgregar = document.getElementById('form-agregar');
+
+btnCancelar.onclick = () => {
+  location.replace("/administrator/dashboard");
+};
 
 formAgregar.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -18,7 +23,7 @@ async function agregarProducto() {
     if (!response.ok) {
       console.log('Error: faltan datos');
     } else {
-      location.href = '/administrator/dashboard';
+      location.assign('/administrator/dashboard');
     }
   } catch(error) {
     console.log('Error:', error);

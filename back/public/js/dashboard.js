@@ -1,11 +1,25 @@
 import { serverUrl } from './variables.js';
+const btnAgregarProducto = document.getElementById('btn-agregar-producto');
+const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
 const tableBody = document.getElementById('table-body');
 const arrayBtnModificar = tableBody.getElementsByClassName('modificar');
 const arrayBtnBajar = tableBody.getElementsByClassName('bajar');
 const arrayBtnEliminar = tableBody.getElementsByClassName('eliminar');
 
+btnAgregarProducto.onclick = () => {
+  location.assign('/producto/alta');
+};
+
+btnCerrarSesion.onclick = () => {
+  location.replace('/administrator');
+};
+
 for (let boton of arrayBtnModificar) {
-  document.getElementById(boton.id).onclick = () => window.location.href = '/producto/modificar';
+  document.getElementById(boton.id).onclick = () => {
+    const id = boton.id.split('-')[2];
+    localStorage.setItem('id-modificar', id);
+    location.assign('/producto/modificar');
+  };
 }
 
 for (let boton of arrayBtnBajar) {

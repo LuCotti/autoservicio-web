@@ -1,8 +1,13 @@
-import { serverUrl } from './variables.js';
+import { frontUrl, serverUrl } from './variables.js';
+const btnSalir = document.getElementById('btn-salir');
 const inputMail = document.getElementById("input-mail");
 const inputClave = document.getElementById("input-clave");
 const btnIngresar = document.getElementById('btn-ingresar');
 const btnAccesoRapido = document.getElementById("btn-acceso-rapido");
+
+btnSalir.onclick = () => {
+  location.assign(frontUrl + '/front/views/bienvenida.html');
+};
 
 btnAccesoRapido.addEventListener("click", () => {
   inputMail.value = "gonza@admin.com";
