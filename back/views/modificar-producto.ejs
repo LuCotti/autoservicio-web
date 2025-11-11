@@ -41,12 +41,11 @@
               type="file" 
               name="imagen"
             >
-          <input 
-            type="text" 
-            name="categoria" 
-            placeholder="Ingrese la categoria..." 
-            value="<%= producto.categoria %>"
-          >
+          <select name="categoria" id="categoria">
+            <option value="Plafon" <%= producto.categoria === 'Plafon' ? 'selected' : '' %>>Plafon</option>
+            <option value="Farol" <%= producto.categoria === 'Farol' ? 'selected' : '' %>>Farol</option>
+          </select>
+
         <button type="submit">Guardar cambios</button>
       </form>
     </main>
