@@ -19,10 +19,33 @@
     </nav>
     <main>
       <form id="form-modificar">
-        <input type="text" name="nombre" placeholder="Ingrese el nombre...">
-        <input type="number" name="precio" placeholder="Ingrese el precio...">
-        <input type="file" name="imagen">
-        <input type="text" name="categoria" placeholder="Ingrese la categoria...">
+          <input 
+            name="nombre" 
+            type="text" 
+            placeholder="Ingrese el nombre..." 
+            value="<%= producto.nombre %>"
+          >
+          <input 
+            type="number" 
+            name="precio" 
+            placeholder="Ingrese el precio..." 
+            value="<%= producto.precio %>"
+          >
+          <% if (producto.imagen) { %>
+            <div style="margin: 10px 0;">
+              <img src="/uploads/<%= producto.imagen %>" alt="Imagen actual" width="120">
+            </div>
+          <% } %>
+            <input 
+              type="file" 
+              name="imagen"
+            >
+          <input 
+            type="text" 
+            name="categoria" 
+            placeholder="Ingrese la categoria..." 
+            value="<%= producto.categoria %>"
+          >
         <button type="submit">Guardar cambios</button>
       </form>
     </main>

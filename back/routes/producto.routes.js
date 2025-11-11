@@ -76,7 +76,7 @@ router.get("/modificar/:id", async(req, res) => {
     }  
     //console.log(producto.nombre, producto.precio);
     res.render("../views/modificar-producto", { producto });
-
+    
   }
   catch(error){
     console.error("Error al obtener el producto", error);
