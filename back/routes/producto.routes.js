@@ -1,4 +1,4 @@
-const Producto = require("../models/producto.js");
+const { Producto } = require("../models/relaciones.js");
 const router = require("express").Router();
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });

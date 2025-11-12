@@ -1,4 +1,4 @@
-const Venta = require("../models/venta");
+const { Venta } = require("../models/relaciones.js");
 const router = require("express").Router();
 
 // Registrar una venta
