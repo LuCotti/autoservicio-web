@@ -13,17 +13,51 @@ const btnDescargar = document.getElementById("btn-descargar");
 const btnSalir = document.getElementById("btn-salir");
 const productosCarrito = traerGuardados();
 const nombreCliente = localStorage.getItem("cliente");
+const fecha = new Date().toLocaleString();
+const nombreEmpresa = 'Bichito de Luz';
 let precioTotal = 0;
 
 clienteElement.innerText = `Cliente: ${nombreCliente}`;
-fechaElement.innerText = `Fecha: ${new Date().toLocaleString()}`;
-empresaElement.innerText = `Empresa: Bichito de Luz`;
+fechaElement.innerText = `Fecha: ${fecha}`;
+empresaElement.innerText = `Empresa: ${nombreEmpresa}`;
 mostrarProductos();
 
 for (let td of arrayTdId) {
   let id = Number.parseInt(td.id.split('-')[1]);
   arrayId.push(id);
 }
+
+btnDescargar.onclick = async () => {
+  try {
+    const body = {
+      'nombreCliente': nombreCliente,
+      'fecha': fecha,
+      'nombreEmpresa': nombreEmpresa,
+      'productosCarrito': productosCarrito,
+      'precioTotal': precioTotal,
+    };
+    const response = await fetch(`${apiUrl}/venta/ticket`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!response.ok) {
+      console.log('¡Error en la petición!');
+    }
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ticket.pdf';
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 btnSalir.onclick = async () => {
   const body = {
