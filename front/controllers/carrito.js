@@ -24,25 +24,29 @@ btnSalir.onclick = () => {
 };
 
 btnFinalizarCompra.onclick = async () => {
-  const body = {
-    nombreCliente: nombreCliente,
-    fecha: new Date(),
-    precioTotal: precioTotal,
-    productos: arrayId
-  };
-  const ventaRegistrada = await fetch(`${apiUrl}/venta`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(body)
+  confirmar().then(async (result) => {
+    if (result.isConfirmed) {
+      const body = {
+        nombreCliente: nombreCliente,
+        fecha: new Date(),
+        precioTotal: precioTotal,
+        productos: arrayId
+      };
+      const ventaRegistrada = await fetch(`${apiUrl}/venta`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+    
+      if (ventaRegistrada.ok) {
+        location.replace("./ticket.html");
+      } else {
+        console.log("Error al registrar la venta");
+      }
+    }
   });
-
-  if (ventaRegistrada.ok) {
-    location.replace("./ticket.html");
-  } else {
-    console.log("Error al registrar la venta");
-  }
 }
 
 
@@ -103,3 +107,14 @@ function crearCard(producto) {
   `;
   return div;
 }
+
+const confirmar = () => Swal.fire({
+  title: "¿Está seguro que desea confirmar la compra?",
+  text: "¡No se aceptan devoluciones!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Si",
+  cancelButtonText: "No"
+});
