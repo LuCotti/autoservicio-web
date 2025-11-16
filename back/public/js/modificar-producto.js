@@ -1,4 +1,4 @@
-import { serverUrl } from "./variables.js";
+import { apiUrl } from "./variables.js";
 const btnCancelar = document.getElementById('btn-cancelar');
 const formModificar = document.getElementById('form-modificar');
 
@@ -16,7 +16,7 @@ async function modificarProducto() {
   const formData = new FormData(formModificar);
   console.log()
   try {
-    const response = await fetch(`${serverUrl}/producto/${id}`, {
+    const response = await fetch(`${apiUrl}/producto/${id}`, {
       method: 'PUT',
       body: formData
     });

@@ -1,4 +1,4 @@
-import { serverUrl } from './variables.js';
+import { apiUrl } from './variables.js';
 const btnCancelar = document.getElementById("btn-cancelar");
 const formAgregar = document.getElementById('form-agregar');
 
@@ -15,7 +15,7 @@ async function agregarProducto() {
   const formData = new FormData(formAgregar);
 
   try {
-    const response = await fetch(`${serverUrl}/producto`, {
+    const response = await fetch(`${apiUrl}/producto`, {
       method: 'POST',
       body: formData
     });
