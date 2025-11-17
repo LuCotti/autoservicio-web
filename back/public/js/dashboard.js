@@ -30,7 +30,7 @@ btnPlafones.onclick = () => {
   mostrarProductos(categoriaB);
 };
 
-const response = await fetch(apiUrl + '/producto');
+const response = await fetch(apiUrl + '/producto/all');
 const productos = await response.json();
 
 function mostrarProductos(categoria) {
