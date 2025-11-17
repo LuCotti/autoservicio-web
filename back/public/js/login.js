@@ -13,6 +13,7 @@ if (tema === 'oscuro') body.classList.add('oscuro');
 btnTema.onclick = cambiarTema;
 
 btnSalir.onclick = () => {
+  localStorage.clear();
   location.assign(frontUrl + '/front/views/bienvenida.html');
 };
 
