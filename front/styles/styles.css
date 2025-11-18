@@ -5,7 +5,7 @@
 
 body{
   max-width: 1200px;
-  margin: 0, auto;
+  margin: 0 auto;
 
 }
 
@@ -16,9 +16,9 @@ body{
   background-color: bisque;
 }
 header{
-  display: flex;/* activo las propiedades del flexbox*/
+  display: flex;
   align-items: center; 
-  overflow: hidden;    /* evita que el contenido se salga */
+  justify-content: space-between;
 }
 
 
@@ -35,5 +35,20 @@ header{
   100% {
     transform: translateX(-100%);
   }
+}
+
+
+main{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.welcome-section{
+   text-align: center;
+   width: 100%;
+
+}
+.welcome-section > h2{
+  font-size: 60px;
 }
 
