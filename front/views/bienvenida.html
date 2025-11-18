@@ -18,7 +18,7 @@
   <body>
 
     <div class="integrantes-banner">
-      <p>Alumnos: COTTI, Luciano Ariel y RODRIGUEZ, Gonzalo Ezequiel</p>
+      <p>Desarrollado por: COTTI, Luciano Ariel y RODRIGUEZ, Gonzalo Ezequiel</p>
     </div>
     <header>
 
@@ -41,10 +41,15 @@
     </header>
 
     <main>
-      <h2>¡Bienvenido!</h2>
-      <input type="text" id="input-nombre" placeholder="Ingrese su nombre..." value="Nombre">
-      <button id="btn-ingresar">Ingresar</button>
-      <p id="p-mensaje"></p>
+      <section class="welcome-section">
+
+        <h2>¡Bienvenido!</h2>
+        <input type="text" id="input-nombre" class="name-input" placeholder="Ingrese su nombre..." value="">
+        <button class="btn-ingresar" id="btn-ingresar">Ingresar</button>
+        <p id="p-mensaje"></p>
+
+      </section>
+      
     </main>
     <script type="module" src="../controllers/bienvenida.js"></script>
   </body>

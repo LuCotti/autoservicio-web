@@ -5,7 +5,7 @@
 
 body{
   max-width: 1200px;
-  margin: 0, auto;
+  margin: 0 auto;
 
 }
 
@@ -16,9 +16,9 @@ body{
   background-color: bisque;
 }
 header{
-  display: flex;/* activo las propiedades del flexbox*/
+  display: flex;
   align-items: center; 
-  overflow: hidden;    /* evita que el contenido se salga */
+  justify-content: space-between;
 }
 
 
@@ -37,3 +37,46 @@ header{
   }
 }
 
+
+main{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.welcome-section{
+   text-align: center;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: center;
+
+
+}
+.welcome-section > h2{
+  font-size: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.name-input{
+  font-size: 35px;
+  width: auto;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+.btn-ingresar{
+  margin-top: 18px;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 30px;
+
+}
+
+.welcome-section > p {
+  color: rgb(220, 52, 52);
+  font-style: italic;
+}
