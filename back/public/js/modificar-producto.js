@@ -21,7 +21,6 @@ formModificar.addEventListener("submit", (e) => {
 async function modificarProducto() {
   const id = document.getElementById("productoId").value;
   const formData = new FormData(formModificar);
-  console.log()
   try {
     const response = await fetch(`${apiUrl}/producto/${id}`, {
       method: 'PUT',
@@ -31,6 +30,13 @@ async function modificarProducto() {
     if (!response.ok) {
       console.log('Error: faltan datos');
     } else {
+      await Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "¡Producto modificado exitosamente!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       location.assign('/administrator/dashboard');
     }
   } catch(error) {

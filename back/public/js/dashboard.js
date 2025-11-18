@@ -87,6 +87,20 @@ function mostrarProductos(categoria) {
                   const tdActivo = document.getElementById(`activo-${id}`);
                   tdActivo.textContent = modificado.activo ? 'Activo' : 'Inactivo';
                   boton.textContent = modificado.activo ? 'Dar de baja' : 'Dar de alta';
+                  Toastify({
+                    text: `¡Producto dado de ${modificado.activo ? 'alta' : 'baja'} exitosamente!`,
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: {
+                      background: "#0e87beff",
+                    },
+                    onClick: function(){}
+                  }).showToast();
                 } else {
                   console.log('Error');
                 }
@@ -111,6 +125,20 @@ function mostrarProductos(categoria) {
                 });
                 if (response.ok) {
                   document.getElementById(`tr-producto-${id}`).remove();
+                  Toastify({
+                    text: `¡Producto eliminado exitosamente!`,
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: {
+                      background: "#0e87beff",
+                    },
+                    onClick: function(){}
+                  }).showToast();
                 } else {
                   console.log('Error');
                 }
