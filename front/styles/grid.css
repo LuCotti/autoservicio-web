@@ -1,0 +1,28 @@
+.products-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    column-gap: 30px;
+
+}
+
+.product-card{
+    position: relative;
+    transition: transform 0.1s ease-in; /* cuando el cursor se aleja (vuelve rápido) */
+
+}
+.product-card:hover{
+    cursor: pointer;
+    /*transition: .3s linear;*/
+    transform: scale(1.1);
+    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.products-grid img{
+    /*
+    margin: 0 auto;
+    display: block;
+    width: 80%;*/
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}

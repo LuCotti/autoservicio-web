@@ -50,7 +50,11 @@ const page = Pagination({
 
   // cómo dibujar un producto
   renderItem: (p) => {
+    const card = document.createElement('div');
+    card.classList.add("product-card");
     const div = document.createElement('div');
+
+
     div.id = `div-producto-${p.id}`;
     div.classList.add('product');
     div.innerHTML = `
@@ -62,6 +66,8 @@ const page = Pagination({
       ? `<button id="btn-quitar-${p.id}">Quitar del carrito</button>` 
       : `<button id="btn-agregar-${p.id}">Agregar al carrito</button>`}
     `;
+
+    card.appendChild(div);
 
 
     const btnAgregar = div.querySelector(`#btn-agregar-${p.id}`);
@@ -80,7 +86,7 @@ const page = Pagination({
         page.render(); 
       });
     }
-    return div;
+    return card;
   }
 });
 
