@@ -1,27 +1,42 @@
-const apiUrl = 'http://localhost:3000'
-const body = document.getElementsByTagName('body')[0];
+// ------------------------------VARIABLES------------------------------
+const apiUrl = 'http://localhost:3000';
 const sectionProductos = document.getElementById("section-productos");
 const categoriaA = "Farol";
 const categoriaB = "Plafon";
-
 const response = await fetch(apiUrl + "/producto");
 const productos = await response.json();
 
+// ------------------------------FUNCIONES------------------------------
 function obtenerTema() {
   return localStorage.getItem('tema');
 }
-
 function cambiarTema() {
   let tema = localStorage.getItem('tema');
   if (tema === null || tema === 'claro') {
     localStorage.setItem('tema', 'oscuro');
-    body.classList.add('oscuro');
+    document.documentElement.classList.add('oscuro');
   } else if (tema === 'oscuro') {
     localStorage.setItem('tema', 'claro');
-    body.classList.remove('oscuro');
+    document.documentElement.classList.remove('oscuro');
   } else {
     console.log('Algo salió mal');
   }
+}
+
+async function ingresar(inputNombre, mensajeElement) {
+  const nombre = inputNombre.value;
+  if (nombre.length === 0) {
+    mensajeElement.innerText = "Por favor, ingrese su nombre...";
+  } else {
+    mensajeElement.innerText = "";
+    localStorage.setItem("cliente", nombre);
+    location.replace("./productos.html");
+  }
+}
+
+async function irALogin() {
+  const  response = await fetch(apiUrl + '/administrator')
+  location.assign(response.url);
 }
 
 function mostrarProductos(categoria) {
@@ -107,4 +122,4 @@ function obtenerPosicion(producto) {
   return index;
 }
 
-export { apiUrl, sectionProductos, categoriaA, categoriaB, productos, obtenerTema, cambiarTema, mostrarProductos, crearCard, eliminarElementos, traerGuardados, guardarProducto, estaGuardado, quitarProducto, obtenerPosicion };
+export { apiUrl, sectionProductos, categoriaA, categoriaB, productos, obtenerTema, cambiarTema, ingresar, irALogin, mostrarProductos, crearCard, eliminarElementos, traerGuardados, guardarProducto, estaGuardado, quitarProducto, obtenerPosicion };
