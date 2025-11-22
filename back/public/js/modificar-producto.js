@@ -1,11 +1,7 @@
-import { obtenerTema, cambiarTema, apiUrl } from "./funciones-variables.js";
-const body = document.getElementsByTagName('body')[0];
+import { cambiarTema, apiUrl } from "./utils/funciones-variables.js";
 const btnTema = document.getElementById('btn-tema');
 const btnCancelar = document.getElementById('btn-cancelar');
 const formModificar = document.getElementById('form-modificar');
-
-let tema = obtenerTema();
-if (tema === 'oscuro') body.classList.add('oscuro');
 
 btnTema.onclick = cambiarTema;
 

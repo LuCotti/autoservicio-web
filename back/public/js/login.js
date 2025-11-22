@@ -1,14 +1,10 @@
-import { obtenerTema, cambiarTema, frontUrl, apiUrl } from './funciones-variables.js';
-const body = document.getElementsByTagName('body')[0];
+import { cambiarTema, frontUrl, apiUrl } from './utils/funciones-variables.js';
 const btnTema = document.getElementById('btn-tema');
 const btnSalir = document.getElementById('btn-salir');
 const inputMail = document.getElementById("input-mail");
 const inputClave = document.getElementById("input-clave");
 const btnIngresar = document.getElementById('btn-ingresar');
 const btnAccesoRapido = document.getElementById("btn-acceso-rapido");
-
-let tema = obtenerTema();
-if (tema === 'oscuro') body.classList.add('oscuro');
 
 btnTema.onclick = cambiarTema;
 
