@@ -88,10 +88,18 @@ header > div {
     background-color: lightgrey;
     border-radius: 5px;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 200,
+  'GRAD' 200,
+  'opsz' 20
+}
+
 .header-button > div {
     font-size: 15px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 550;
+    font-weight: 500;
     text-align: center;
 }
 

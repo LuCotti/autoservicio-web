@@ -61,7 +61,7 @@ const page = Pagination({
       <img src="http://localhost:3000/uploads/${p.imagen}">
       <p>Producto Nº: ${p.id}</p>
       <p>Nombre: ${p.nombre}</p>
-      <p>Precio: ${p.precio}</p>
+      <p>$${p.precio},00</p>
       ${estaGuardado(p.id) 
       ? `<button id="btn-quitar-${p.id}">Quitar del carrito</button>` 
       : `<button id="btn-agregar-${p.id}">Agregar al carrito</button>`}
