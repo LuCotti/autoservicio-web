@@ -23,6 +23,11 @@
   }
 }
 
+/*------------INTEGRANTES------------*/
+.integrantes-banner{
+  color: #222;
+}
+
 /*------------PROMOS BANCARIAS------------*/
 .promosBancarias-container{
   font-family: 'Times New Roman', Times, serif;
