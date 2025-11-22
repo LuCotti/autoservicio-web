@@ -34,35 +34,34 @@ export const Pagination = ({
   async function render() {
     updateURL();
     const data = await fetchPage();
-    if(!data.products.length){
-
+    if (!category) {
       document.getElementById("nextBtn").style.display = "none";
       document.getElementById("prevBtn").style.display = "none";
       return
-
-    }
-    else{
+    } else {
       document.getElementById("nextBtn").style.display = "block";
       document.getElementById("prevBtn").style.display = "block";
     }
     container.innerHTML = "";
 
     data.products.forEach(item => {
-      if(item.activo === true)
-      {
+      if (item.activo === true) {
         container.appendChild(renderItem(item));
       }
     });
 
     document.getElementById("pageInfo").textContent =
-      `Página ${(offset / limit) + 1}`;
+      `Página ${data.currentPage}`;
 
     return data;
   }
 
-  function next() {
-    offset += limit;
-    render();
+  async function next() {
+    const data = await fetchPage();
+    if (data.currentPage !== data.totalPages) {
+      offset += limit;
+      render();
+    }
   }
 
   function prev() {

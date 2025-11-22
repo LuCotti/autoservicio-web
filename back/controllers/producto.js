@@ -47,7 +47,7 @@ async function traerTodosConPaginacion(req, res) {
       limit: limit,
       offset: offset,
       order: [
-        ['createdAt', 'DESC'] 
+        ['createdAt', 'ASC'] 
       ]
     });
 
