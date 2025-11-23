@@ -74,14 +74,42 @@ const page = Pagination({
     if (btnAgregar) {
       btnAgregar.addEventListener("click", () => {
         guardarProducto(p);
-        page.render(); 
+        page.render();
+        Toastify({
+          text: '¡Producto guardado exitosamente!',
+          duration: 3000,
+          destination: 'https://github.com/apvarun/toastify-js',
+          newWindow: true,
+          close: true,
+          gravity: 'top',
+          position: 'right',
+          stopOnFocus: true,
+          style: {
+            background: '#0e87beff',
+          },
+          onClick: function () {},
+        }).showToast();
       });
     }
 
     if (btnQuitar) {
       btnQuitar.addEventListener("click", () => {
         quitarProducto(p);
-        page.render(); 
+        page.render();
+        Toastify({
+          text: '¡Producto eliminado exitosamente!',
+          duration: 3000,
+          destination: 'https://github.com/apvarun/toastify-js',
+          newWindow: true,
+          close: true,
+          gravity: 'top',
+          position: 'right',
+          stopOnFocus: true,
+          style: {
+            background: '#0e87beff',
+          },
+          onClick: function () {},
+        }).showToast();
       });
     }
     return card;
