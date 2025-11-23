@@ -123,9 +123,12 @@ function mostrarGuardados() {
   const productos = traerGuardados();
   if (productos.length === 0) {
     sectionProductos.innerText = "No hay productos en el carrito";
-    document.getElementById("btn-finalizar-compra").hidden = true;
+    document.getElementById('precio-total').style.display = 'none';
+    document.getElementById('btn-finalizar-compra').style.display = 'none';
   } else {
     sectionProductos.innerText = "";
+    document.getElementById('precio-total').style.display = 'block';
+    document.getElementById('btn-finalizar-compra').style.display = 'block';
     for (let p of productos) {
       let div = crearCardCarrito(p);
       sectionProductos.appendChild(div);
@@ -134,6 +137,7 @@ function mostrarGuardados() {
       let btnRestar = document.getElementById(`btn-restar-${p.id}`);
       let spanCantidad = document.getElementById(`span-cantidad-${p.id}`);
       let btnSumar = document.getElementById(`btn-sumar-${p.id}`);
+      let precioTotalElement = document.getElementById('precio-total');
 
       btnQuitar.addEventListener("click", () => {
         quitarProducto(p);
@@ -146,6 +150,8 @@ function mostrarGuardados() {
             p.cantidad--;
             localStorage.setItem("productos", JSON.stringify(productos));
             spanCantidad.innerText = p.cantidad;
+            precioTotal = precioTotal - p.precio;
+            precioTotalElement.innerText = `Precio total: $ ${precioTotal}`;
           }
         });
       }
@@ -154,6 +160,8 @@ function mostrarGuardados() {
           p.cantidad++;
           localStorage.setItem("productos", JSON.stringify(productos));
           spanCantidad.innerText = p.cantidad;
+          precioTotal = precioTotal + p.precio;
+          precioTotalElement.innerText = `Precio total: $ ${precioTotal}`;
         });
       }
 

@@ -3,10 +3,11 @@ const btnTema = document.getElementById("btn-tema");
 const btnProductos = document.getElementById("btn-productos");
 const btnCarrito = document.getElementById("btn-carrito");
 const btnSalir = document.getElementById("btn-salir");
+const precioTotalElement = document.getElementById('precio-total');
 const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 const nombreCliente = localStorage.getItem("cliente");
 const { precioTotal, arrayId } = mostrarGuardados();
-
+precioTotalElement.innerText = `Precio total: $ ${precioTotal}`;
 btnTema.onclick = cambiarTema;
 
 btnProductos.onclick = () => {
