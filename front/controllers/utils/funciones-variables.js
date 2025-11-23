@@ -2,6 +2,7 @@ import { Pagination } from "./pagination.js";
 // ------------------------------VARIABLES------------------------------
 const apiUrl = 'http://localhost:3000';
 const sectionProductos = document.getElementById("section-productos");
+const divProducts = document.getElementById('products');
 const categoriaA = "Farol";
 const categoriaB = "Plafon";
 const response = await fetch(apiUrl + "/producto");
@@ -59,7 +60,7 @@ const page = Pagination({
       <img src="http://localhost:3000/uploads/${p.imagen}">
       <p class="product-name">${p.nombre}</p>
       <p class="product-price">$${p.precio},00</p>
-      <p class="cuotas-p">6 cuotas sin interes de $${(p.precio / 6).toFixed(2)}</p>
+      <p class="cuotas-p">6 cuotas sin interés de $${(p.precio / 6).toFixed(2)}</p>
       ${estaGuardado(p.id) 
       ? `<button id="btn-quitar-${p.id}">Quitar del carrito</button>` 
       : `<button id="btn-agregar-${p.id}">Agregar al carrito</button>`}
@@ -119,19 +120,19 @@ const page = Pagination({
 function mostrarGuardados() {
   let precioTotal = 0;
   let arrayId = [];
-  eliminarElementos(sectionProductos);
+  eliminarElementos(divProducts);
   const productos = traerGuardados();
   if (productos.length === 0) {
-    sectionProductos.innerText = "No hay productos en el carrito";
+    divProducts.innerText = 'No hay productos en el carrito';
     document.getElementById('precio-total').style.display = 'none';
     document.getElementById('btn-finalizar-compra').style.display = 'none';
   } else {
-    sectionProductos.innerText = "";
+    divProducts.innerText = '';
     document.getElementById('precio-total').style.display = 'block';
     document.getElementById('btn-finalizar-compra').style.display = 'block';
     for (let p of productos) {
       let div = crearCardCarrito(p);
-      sectionProductos.appendChild(div);
+      divProducts.appendChild(div);
 
       let btnQuitar = document.getElementById(`btn-quitar-${p.id}`);
       let btnRestar = document.getElementById(`btn-restar-${p.id}`);
@@ -151,7 +152,7 @@ function mostrarGuardados() {
             localStorage.setItem("productos", JSON.stringify(productos));
             spanCantidad.innerText = p.cantidad;
             precioTotal = precioTotal - p.precio;
-            precioTotalElement.innerText = `Precio total: $ ${precioTotal}`;
+            precioTotalElement.innerText = `Precio total: $${precioTotal}`;
           }
         });
       }
@@ -161,7 +162,7 @@ function mostrarGuardados() {
           localStorage.setItem("productos", JSON.stringify(productos));
           spanCantidad.innerText = p.cantidad;
           precioTotal = precioTotal + p.precio;
-          precioTotalElement.innerText = `Precio total: $ ${precioTotal}`;
+          precioTotalElement.innerText = `Precio total: $${precioTotal}`;
         });
       }
 
@@ -173,19 +174,27 @@ function mostrarGuardados() {
 }
 
 function crearCardCarrito(producto) {
+  const card = document.createElement('div');
+  card.classList.add('product-card');
   const div = document.createElement("div");
   div.id = `div-producto-${producto.id}`;
+  div.classList.add('product');
   div.innerHTML = `
   <img src="${apiUrl}/uploads/${producto.imagen}">
-  <p>Producto Nº: ${producto.id}</p>
-  <p>Nombre: ${producto.nombre}</p>
-  <p>Precio: ${producto.precio}</p>
-  <button id="btn-quitar-${producto.id}">Quitar del carrito</button>
-  <button id="btn-restar-${producto.id}">-</button>
-  <span id="span-cantidad-${producto.id}">${producto.cantidad}</span>
-  <button id="btn-sumar-${producto.id}">+</button>
+  <p class="product-name">${producto.nombre}</p>
+  <p class="product-price">$${producto.precio},00</p>
+  <p class="cuotas-p">6 cuotas sin interés de $${(producto.precio / 6).toFixed(2)}</p>
+  <div class="div-quitar">
+    <button id="btn-quitar-${producto.id}">Quitar del carrito</button>
+  </div>
+  <div class="div-cantidad">
+    <button id="btn-restar-${producto.id}">-</button>
+    <span id="span-cantidad-${producto.id}">${producto.cantidad}</span>
+    <button id="btn-sumar-${producto.id}">+</button>
+  </div>
   `;
-  return div;
+  card.appendChild(div);
+  return card;
 }
 
 const confirmarCompra = () => Swal.fire({

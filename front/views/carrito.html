@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/grid.css">
 
     <!--*************** Fonts ***************-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,12 +110,15 @@
 
     
     <main>
-      <section id="section-productos"></section>
-      <div>
+      <section class="welcome-section">
+        <h2>Carrito</h2>
+      </section>
+    </main>
+      <div id="products" class="products-grid"></div>
+      <div class="div-finalizar-compra">
         <p id="precio-total" style="display: none;"></p>
         <button id="btn-finalizar-compra" style="display: none;">Finalizar compra</button>
       </div>
-    </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../controllers/carrito.js"></script>
   </body>

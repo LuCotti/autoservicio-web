@@ -7,7 +7,7 @@ const precioTotalElement = document.getElementById('precio-total');
 const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 const nombreCliente = localStorage.getItem("cliente");
 const { precioTotal, arrayId } = mostrarGuardados();
-precioTotalElement.innerText = `Precio total: $ ${precioTotal}`;
+precioTotalElement.innerText = `Precio total: $${precioTotal}`;
 btnTema.onclick = cambiarTema;
 
 btnProductos.onclick = () => {
