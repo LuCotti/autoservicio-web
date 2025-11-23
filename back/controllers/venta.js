@@ -7,19 +7,20 @@ function descargarTicket(req, res) {
   const { nombreCliente, fecha, nombreEmpresa, productosCarrito, precioTotal } = req.body;
   const doc = new PDFDocument();
   doc.pipe(res);
-  doc.text(`Cliente: ${nombreCliente}`);
-  doc.text(`Fecha: ${fecha}`);
-  doc.text(`Empresa: ${nombreEmpresa}`);
+  doc.text(`Cliente: ${nombreCliente}`, { align: 'center' });
+  doc.text(`Fecha: ${fecha}`, { align: 'center' });
+  doc.text(`Empresa: ${nombreEmpresa}`, { align: 'center' });
   doc.moveDown();
-  let data = [['CANTIDAD', 'NOMBRE', 'PRECIO UNIT.', 'PRECIO SUBTOTAL']];
+  let data = [[{ text: 'CANTIDAD', align: 'center' }, { text: 'NOMBRE', align: 'center' }, { text: 'PRECIO UNIT.', align: 'center' }, { text: 'PRECIO SUBTOTAL', align: 'center' }]];
   for (let producto of productosCarrito) {
     data.push([
-      `${producto.cantidad}`,
-      `${producto.nombre}`,
-      `$ ${producto.precio}`,
-      `$ ${producto.cantidad * producto.precio}`,
+      { text: `${producto.cantidad}`, align: 'center' },
+      { text: `${producto.nombre}`, align: 'center'},
+      { text: `$${producto.precio}`, align: 'center' },
+      { text: `$${producto.cantidad * producto.precio}`, align: 'center' },
     ]);
   }
+  data.push([{ colSpan: 3, text: 'PRECIO TOTAL', align: 'center' }, { text: `$${precioTotal}`, align: 'center'}]);
   doc.table({
     rowStyles: (i) => {
       return i < 1
@@ -29,7 +30,6 @@ function descargarTicket(req, res) {
     data: data,
   });
   doc.moveDown();
-  doc.text(`PRECIO TOTAL: $ ${precioTotal}`);
   doc.end();
 }
 

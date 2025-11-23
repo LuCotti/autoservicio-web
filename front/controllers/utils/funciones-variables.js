@@ -214,10 +214,9 @@ function mostrarProductosTicket(tableBody, precioTotalElement) {
   for (let p of productosCarrito) {
     const tr = crearCardTicket(p);
     tableBody.appendChild(tr);
-    total += Number.parseInt(document.getElementById(`total-${p.id}`).innerText);
+    total += p.cantidad * p.precio;
   }
-  // precioTotal = total;
-  precioTotalElement.innerText = `$ ${total}`;
+  precioTotalElement.innerText = `$${total}`;
   return total;
 }
 
@@ -226,8 +225,8 @@ function crearCardTicket(producto) {
   tr.innerHTML = `
   <td>${producto.cantidad}</td>
   <td>${producto.nombre}</td>
-  <td>${producto.precio}</td>
-  <td class="id" id="total-${producto.id}">${producto.cantidad * producto.precio}</td>
+  <td>$${producto.precio}</td>
+  <td class="id" id="total-${producto.id}">$${producto.cantidad * producto.precio}</td>
   `;
   return tr;
 }
