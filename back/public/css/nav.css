@@ -1,0 +1,33 @@
+nav {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: start; 
+    justify-content: flex-start
+}
+
+
+nav > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100px;
+    margin-bottom: 5px;
+    margin-left: 4px;
+    flex-direction: row;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: lightgrey;
+}
+button:active {
+  background-color: rgb(182, 181, 181);
+  color: white;
+}
+
