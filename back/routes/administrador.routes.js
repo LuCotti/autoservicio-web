@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const { registrarUsuario, validarLogin, irADashboard, irALogin } = require('../controllers/administrador.js');
+const { registrarUsuario, irALogin, irADashboardJSON, irADashboard } = require('../controllers/administrador');
+const { validarRegistro, validarLogin } = require('../middlewares/administrador');
 
-router.post("/register", registrarUsuario);
-router.post("/", validarLogin);
+router.post("/register", validarRegistro, registrarUsuario);
+router.post("/", validarLogin, irADashboardJSON);
 router.get("/dashboard", irADashboard);
 router.get("/", irALogin);
 

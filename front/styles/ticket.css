@@ -1,0 +1,65 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#datos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#datos h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  text-align: center;
+}
+
+thead th {
+  font-weight: 600;
+  border-bottom: 4px solid #000;
+  padding: 10px;
+}
+
+tbody td {
+  border-bottom: 2px solid grey;
+  padding: 10px;
+}
+
+#section-buttons {
+  width: 100%;
+}
+
+#section-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  flex-direction: row;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#section-buttons button:hover {
+  background-color: lightgrey;
+}
+
+#section-buttons button:active {
+  background-color: rgb(182, 181, 181);
+  color: white;
+}

@@ -1,14 +1,10 @@
-import { obtenerTema, cambiarTema, frontUrl, apiUrl } from './funciones-variables.js';
-const body = document.getElementsByTagName('body')[0];
+import { cambiarTema, frontUrl, apiUrl } from './utils/funciones-variables.js';
 const btnTema = document.getElementById('btn-tema');
 const btnSalir = document.getElementById('btn-salir');
 const inputMail = document.getElementById("input-mail");
 const inputClave = document.getElementById("input-clave");
 const btnIngresar = document.getElementById('btn-ingresar');
 const btnAccesoRapido = document.getElementById("btn-acceso-rapido");
-
-let tema = obtenerTema();
-if (tema === 'oscuro') body.classList.add('oscuro');
 
 btnTema.onclick = cambiarTema;
 
@@ -23,8 +19,8 @@ btnAccesoRapido.addEventListener("click", () => {
 });
 
 btnIngresar.addEventListener("click", async() => {
-  const mail = document.getElementById("input-mail").value;
-  const pass = document.getElementById("input-clave").value;
+  const mail = inputMail.value;
+  const pass = inputClave.value;
   const mensaje = document.getElementById("p-mensaje");
   if (mail.length === 0 || pass.length === 0) {
     mensaje.innerText = "Por favor, ingrese todos los datos...";
@@ -41,13 +37,9 @@ btnIngresar.addEventListener("click", async() => {
       });
 
       if (response.ok) {
-        // Éxito (status 200)
         const data = await response.json();
-
-        //window.location.href = './dashboard.ejs'; 
         window.location.href = data.redirectTo;
       } else {
-        // Error (Ej: status 401 o 400)
         const errorData = await response.json();
         mensaje.innerText = errorData.error || 'Email o contraseña incorrectos';
       }

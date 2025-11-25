@@ -1,4 +1,5 @@
 /*------------GRID AND CARD------------*/
+<<<<<<< HEAD
 .products-grid{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -8,72 +9,115 @@
     row-gap: 30px;
     align-items: start;
     justify-content: center;
+=======
+>>>>>>> 41eb177a1e65dc0ccc40999d68181e0e02701769
 
+.products-grid {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  column-gap: 30px;
+  row-gap: 30px;
+  align-items: start;
+  justify-content: center;
 }
-.product-card{
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* IMPORTANTE */
-    transition: transform 0.1s ease-in;
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* IMPORTANTE */
+  transition: transform 0.1s ease-in;
 }
-.product-card:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+.product-card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
+<<<<<<< HEAD
 .products-grid img{
     width: 100%;
     object-fit: contain;
     border-radius: 20px;
     align-self: flex-start; /* garantiza que no se centre */
+=======
+
+.products-grid img {
+  /*
+  margin: 0 auto;
+  display: block;
+  width: 80%;*/
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  align-self: flex-start; /* garantiza que no se centre */
+>>>>>>> 41eb177a1e65dc0ccc40999d68181e0e02701769
 }
+
 .product {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-.product > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 140px;
-    margin-bottom: 5px;
-    margin-left: 4px;
-    flex-direction: row;
-    cursor: pointer;
-    border-style: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
+.product button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 140px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  flex-direction: row;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: auto;
+}
 
+.div-cantidad {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.div-quitar {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
 
 /*------------PRODUCT INFO------------*/
-.product-name{
-    color: #303031;
-    font-size: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-.product-price{
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-size: 20px;
-    font-weight: 600;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-.cuotas-p{
-    color: rgb(114, 114, 114);
+
+.product-name {
+  /* color: #303031; Se comentó para evitar confilictos con el modo oscuro */ 
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
+.product-price {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+<<<<<<< HEAD
 
 /*------------PRODUCT INFO------------*/
 .cantidad{
     
 }
+=======
+/* .cuotas-p{
+    color: rgb(114, 114, 114); Se comentó para evitar confilictos con el modo oscuro
+} */
+>>>>>>> 41eb177a1e65dc0ccc40999d68181e0e02701769

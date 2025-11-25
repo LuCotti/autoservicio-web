@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const upload = require('../middlewares/multer');
 const { crear, irACrear, irAModificar, traerPorCategoria, traerTodos, traerTodosConPaginacion, modificar, darDeBaja, eliminar } = require('../controllers/producto');
+const { validarDatos } = require('../middlewares/producto');
 
 // Crear un producto
-router.post("/", upload.single("imagen"), crear);
+router.post("/", upload.single("imagen"), validarDatos, crear);
 
 // Redireccionar
 router.get("/alta", irACrear);

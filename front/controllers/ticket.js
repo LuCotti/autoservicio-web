@@ -1,4 +1,4 @@
-import { obtenerTema, cambiarTema, apiUrl, traerGuardados } from './funciones-variables.js';
+import { obtenerTema, cambiarTema, apiUrl, traerGuardados, mostrarProductosTicket } from './utils/funciones-variables.js';
 const body = document.getElementsByTagName('body')[0];
 const btnTema = document.getElementById("btn-tema");
 const clienteElement = document.getElementById("cliente");
@@ -13,7 +13,7 @@ const productosCarrito = traerGuardados();
 const nombreCliente = localStorage.getItem("cliente");
 const fecha = new Date().toLocaleString();
 const nombreEmpresa = 'Bichito de Luz';
-let precioTotal = 0;
+let precioTotal = mostrarProductosTicket(tableBody, precioTotalElement);
 
 let tema = obtenerTema();
 if (tema === 'oscuro') body.classList.add('oscuro');
@@ -23,7 +23,6 @@ btnTema.onclick = cambiarTema;
 clienteElement.innerText = `Cliente: ${nombreCliente}`;
 fechaElement.innerText = `Fecha: ${fecha}`;
 empresaElement.innerText = `Empresa: ${nombreEmpresa}`;
-mostrarProductos();
 
 btnDescargar.onclick = async () => {
   try {
@@ -60,26 +59,4 @@ btnDescargar.onclick = async () => {
 btnSalir.onclick = async () => {
   localStorage.clear();
   location.replace("./bienvenida.html");
-}
-
-function mostrarProductos() {
-  let total = 0;
-  for (let p of productosCarrito) {
-    const tr = crearCard(p);
-    tableBody.appendChild(tr);
-    total += Number.parseInt(document.getElementById(`total-${p.id}`).innerText);
-  }
-  precioTotal = total;
-  precioTotalElement.innerText = `$ ${total}`;
-}
-
-function crearCard(producto) {
-  const tr = document.createElement("tr");
-  tr.innerHTML = `
-  <td>${producto.cantidad}</td>
-  <td>${producto.nombre}</td>
-  <td>${producto.precio}</td>
-  <td class="id" id="total-${producto.id}">${producto.cantidad * producto.precio}</td>
-  `;
-  return tr;
 }

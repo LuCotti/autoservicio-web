@@ -4,7 +4,6 @@ async function crear(req, res) {
   try{
     const { nombre, precio, categoria } = req.body;
     const imagen = req.file.filename;
-    //todo: validar que vengan todos los datos.
     const resultado = await Producto.create({
       nombre: nombre,
       precio: precio,
@@ -15,6 +14,7 @@ async function crear(req, res) {
   }
   catch (error) {
     if(error instanceof TypeError) {
+      console.log(error);
       return res.status(400).json({ message: "Falta algún parámetro" });
     } else {
       console.log(error);

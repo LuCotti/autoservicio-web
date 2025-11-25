@@ -1,20 +1,14 @@
-import { obtenerTema, cambiarTema, apiUrl, sectionProductos, eliminarElementos, traerGuardados, quitarProducto } from './funciones-variables.js';
-const body = document.getElementsByTagName('body')[0];
+import { cambiarTema, apiUrl, mostrarGuardados, confirmarCompra } from './utils/funciones-variables.js';
 const btnTema = document.getElementById("btn-tema");
 const btnProductos = document.getElementById("btn-productos");
 const btnCarrito = document.getElementById("btn-carrito");
 const btnSalir = document.getElementById("btn-salir");
+const precioTotalElement = document.getElementById('precio-total');
 const btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 const nombreCliente = localStorage.getItem("cliente");
-let precioTotal = 0;
-let arrayId = [];
-
-let tema = obtenerTema();
-if (tema === 'oscuro') body.classList.add('oscuro');
-
+const { precioTotal, arrayId } = mostrarGuardados();
+precioTotalElement.innerText = `Precio total: $${precioTotal}`;
 btnTema.onclick = cambiarTema;
-
-mostrarGuardados();
 
 btnProductos.onclick = () => {
   location.assign("./productos.html");
@@ -30,7 +24,7 @@ btnSalir.onclick = () => {
 };
 
 btnFinalizarCompra.onclick = async () => {
-  confirmar().then(async (result) => {
+  confirmarCompra().then(async (result) => {
     if (result.isConfirmed) {
       const body = {
         nombreCliente: nombreCliente,
@@ -53,6 +47,7 @@ btnFinalizarCompra.onclick = async () => {
       }
     }
   });
+<<<<<<< HEAD
 }
 
 
@@ -129,3 +124,6 @@ const confirmar = () => Swal.fire({
   confirmButtonText: "Si",
   cancelButtonText: "No"
 });
+=======
+}
+>>>>>>> 41eb177a1e65dc0ccc40999d68181e0e02701769

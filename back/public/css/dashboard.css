@@ -1,0 +1,27 @@
+#section-buttons {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  text-align: center;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  border-bottom: 1px solid black;
+  padding: 0 20px;
+}
+
+.modificar,
+.bajar,
+.eliminar {
+  font-size: 15px;
+}

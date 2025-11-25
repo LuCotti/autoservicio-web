@@ -1,0 +1,17 @@
+nav button,
+form button {
+  font-size: 20px;
+}
+
+form input,
+select {
+  font-size: 20px;
+  width: auto;
+  height: 30px;
+}
+
+.div-submit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

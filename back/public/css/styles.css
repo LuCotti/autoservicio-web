@@ -2,3 +2,30 @@
   background-color: #222;
   color: #ddd;
 }
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Playfair Display", serif;
+}
+
+/*------------MATERIAL ICONS DESIGN------------*/
+
+.material-symbols-sharp {
+  font-variation-settings:
+  'FILL' 10,
+  'wght' 10,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espacio entre el icono y el texto */
+  font-size: 16px;
+}
+
+.material-icons {
+  font-size: 20px; /* tamaño del icono */
+}
