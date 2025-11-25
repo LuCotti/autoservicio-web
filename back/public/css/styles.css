@@ -22,10 +22,10 @@ body {
 .icon-text {
   display: flex;
   align-items: center;
-  gap: 6px; /* espacio entre el icono y el texto */
+  gap: 6px;
   font-size: 16px;
 }
 
 .material-icons {
-  font-size: 20px; /* tamaño del icono */
+  font-size: 20px;
 }

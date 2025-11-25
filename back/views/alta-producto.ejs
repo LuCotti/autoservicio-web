@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--*************** Style Sheets ***************-->
-    <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/header.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/alta-producto.css">
 
@@ -79,22 +79,31 @@
         <h2>Alta de producto</h2>
         
         <form id="form-agregar">
+
           <input type="text" name="nombre" placeholder="Ingrese el nombre...">
+
           <input type="number" name="precio" placeholder="Ingrese el precio...">
+
           <div class="file-input-container" >
             <input type="file" name="imagen" id="imagen">
-            <label for="imagen" id="file-label"">Elegir Imagen </label>
-            <span id="file-name">No se ha seleccionado ningún archivo</span>
+            <label for="imagen" id="file-label">
+              Elegir Imagen
+            </label>
+            <span id="file-name">
+              No se ha seleccionado ningún archivo
+            </span>
           </div>
+
           <select name="categoria" id="">
-            <option value="" disabled selected>Seleccione una categoría...</option>
             <option value="Plafon">Plafon</option>
             <option value="Farol">Farol</option>
           </select>
+
           <div class="div-submit">
             <button type="submit">Agregar</button>
           </div>
         </form>
+
       </section>
     </main>
 

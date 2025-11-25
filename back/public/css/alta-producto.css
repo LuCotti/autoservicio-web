@@ -8,14 +8,9 @@ form button {
   font-weight: 500;
 }
 
-form input,
-select {
-  font-size: 20px;
-  width: auto;
-  height: 30px;
-}
-
-#form-agregar {
+/* ********** Formulario ************/
+#form-agregar,
+#form-modificar{
   width: 100%;
   max-width: 450px;
   margin: -10px auto;
@@ -29,10 +24,21 @@ select {
   gap: 15px;
   font-family: "Playfair Display", serif;
 }
+form input,
+select {
+  font-size: 20px;
+  width: auto;
+  color: #303031;
+}
+
+
+
 
 #form-agregar input,
-#form-agregar select {
-  padding: 12px 14px;
+#form-agregar select,
+#form-modificar input,
+#form-modificar select{
+  padding: 4px 14px;
   border-radius: 10px;
   border: 1px solid #d0d0d0;
   font-size: 15px;
@@ -42,11 +48,49 @@ select {
   transition: 0.2s ease;
 }
 #form-agregar input:focus,
-#form-agregar select:focus {
+#form-agregar select:focus,
+#form-modificar input:focus,
+#form-modificar select:focus {
   border-color: #303031;
   background: #fff;
   box-shadow: 0 0 4px rgba(48,48,49,0.4);
 }
+
+
+
+/* ********** seleccionar imagen ************/
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.file-input-container input[type="file"] {
+  display: none; /*Oculto boton original de tipo input*/
+}
+#file-label {
+  padding: 10px 20px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+  text-align: center;
+  width: auto;
+}
+#file-label:hover {
+  background: #bebebe;
+}
+#file-name {
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+}
+
+
+
+
 
 .div-submit {
   display: flex;
@@ -60,32 +104,4 @@ select {
 }
 
 
-.file-input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
 
-.file-input-container input[type="file"] {
-  display: none; /* Oculta el input original */
-}
-
-#file-label {
-  padding: 12px;
-  text-align: center;
-background-color: rgb(240, 240, 240);
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-#file-label:hover {
-  background: #bebebe;
-}
-
-#file-name {
-  font-size: 14px;
-  color: #444;
-  padding-left: 4px;
-}
