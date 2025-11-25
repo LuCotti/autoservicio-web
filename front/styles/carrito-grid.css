@@ -2,24 +2,20 @@
 .products-grid{
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 15px;
     display: grid;
     grid-template-columns: repeat(4, 200px);
     column-gap: 30px;
     row-gap: 30px;
     align-items: start;
-    justify-content: center;
+    justify-content: start;
 
 }
 .product-card{
     display: flex;
     flex-direction: column;
     height: 100%; /* IMPORTANTE */
-    transition: transform 0.1s ease-in;
-}
-.product-card:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
 }
 .products-grid img{
     width: 100%;
@@ -31,22 +27,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-.product > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 140px;
-    margin-bottom: 5px;
-    margin-left: 4px;
-    flex-direction: row;
-    cursor: pointer;
-    border-style: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: auto;
 }
 
 
@@ -68,12 +48,21 @@
     padding-left: 6px;
     padding-right: 6px;
 }
-.cuotas-p{
-    color: rgb(114, 114, 114);
-}
 
 
-/*------------PRODUCT INFO------------*/
-.cantidad{
-    
+.product-card button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: auto;
+    margin-bottom: 5px;
+    margin-left: 4px;
+    flex-direction: row;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: auto;
 }

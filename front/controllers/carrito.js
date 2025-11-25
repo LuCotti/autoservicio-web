@@ -101,15 +101,20 @@ function mostrarGuardados() {
 function crearCard(producto) {
   const div = document.createElement("div");
   div.id = `div-producto-${producto.id}`;
+  div.classList.add("product-card");
   div.innerHTML = `
   <img src="${apiUrl}/uploads/${producto.imagen}">
-  <p>Producto Nº: ${producto.id}</p>
-  <p>Nombre: ${producto.nombre}</p>
-  <p>Precio: ${producto.precio}</p>
-  <button id="btn-quitar-${producto.id}">Quitar del carrito</button>
-  <button id="btn-restar-${producto.id}">-</button>
-  <span id="span-cantidad-${producto.id}">${producto.cantidad}</span>
-  <button id="btn-sumar-${producto.id}">+</button>
+  <p class="product-name">${producto.nombre}</p>
+  <p class="product-price">$${producto.precio},00</p>
+
+  <div class="buttons">
+    <button class="btn-quitar" id="btn-quitar-${producto.id}">Quitar del carrito</button>
+    <div class="cantidad">
+      <button id="btn-restar-${producto.id}">-</button>
+      <span id="span-cantidad-${producto.id}">${producto.cantidad}</span>
+      <button id="btn-sumar-${producto.id}">+</button>
+    </div>
+  </div>
   `;
   return div;
 }
