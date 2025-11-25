@@ -1,19 +1,9 @@
 /*------------GRID AND CARD------------*/
 .products-grid{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 200px);
-    column-gap: 30px;
-    row-gap: 30px;
-    align-items: start;
-    justify-content: center;
-
-.products-grid {
   margin-top: 20px;
   margin-bottom: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   column-gap: 30px;
   row-gap: 30px;
   align-items: start;
@@ -23,7 +13,7 @@
 .product-card {
   display: flex;
   flex-direction: column;
-  height: 100%; /* IMPORTANTE */
+  height: 100%;
   transition: transform 0.1s ease-in;
 }
 
@@ -96,6 +86,7 @@
 
 
 /*------------PRODUCT INFO------------*/
-.cantidad{
-    
+.card-buttons {
+    margin-top: auto;  /* Empuja este div hacia el fondo */
 }
+

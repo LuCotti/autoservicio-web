@@ -73,6 +73,10 @@ header > div {
 }
 
 /*------------MIDDLE SECTION TODO------------*/
+.header-middlle-section > p {
+  font-size: 30px;
+  text-align: center;
+}
 
 
 

@@ -184,13 +184,15 @@ function crearCardCarrito(producto) {
   <p class="product-name">${producto.nombre}</p>
   <p class="product-price">$${producto.precio},00</p>
   <p class="cuotas-p">6 cuotas sin interés de $${(producto.precio / 6).toFixed(2)}</p>
-  <div class="div-quitar">
-    <button id="btn-quitar-${producto.id}">Quitar del carrito</button>
-  </div>
-  <div class="div-cantidad">
-    <button id="btn-restar-${producto.id}">-</button>
-    <span id="span-cantidad-${producto.id}">${producto.cantidad}</span>
-    <button id="btn-sumar-${producto.id}">+</button>
+  <div class="card-buttons">
+    <div class="div-quitar">
+      <button id="btn-quitar-${producto.id}">Quitar del carrito</button>
+    </div>
+    <div class="div-cantidad">
+      <button id="btn-restar-${producto.id}">-</button>
+      <span id="span-cantidad-${producto.id}">${producto.cantidad}</span>
+      <button id="btn-sumar-${producto.id}">+</button>
+    </div>
   </div>
   `;
   card.appendChild(div);

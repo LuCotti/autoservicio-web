@@ -48,8 +48,6 @@
     padding-left: 6px;
     padding-right: 6px;
 }
-
-
 .product-card button {
     display: flex;
     justify-content: center;
@@ -65,4 +63,7 @@
     font-size: 14px;
     font-weight: 600;
     margin-top: auto;
+}
+.card-buttons {
+    margin-top: auto;  /* Empuja este div hacia el fondo */
 }

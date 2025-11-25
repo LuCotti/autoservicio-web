@@ -13,3 +13,13 @@ formAgregar.addEventListener("submit", (e) => {
   e.preventDefault();
   agregarProducto(formAgregar);
 });
+
+  const inputFile = document.getElementById("imagen");
+  const fileName = document.getElementById("file-name");
+
+  inputFile.addEventListener("change", () => {
+    fileName.textContent =
+      inputFile.files.length > 0 
+        ? inputFile.files[0].name 
+        : "No se ha seleccionado ningún archivo";
+  });

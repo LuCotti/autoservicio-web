@@ -1,6 +1,11 @@
+nav button{
+  margin-left: 15px;
+}
 nav button,
 form button {
   font-size: 20px;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
 }
 
 form input,
@@ -10,8 +15,77 @@ select {
   height: 30px;
 }
 
+#form-agregar {
+  width: 100%;
+  max-width: 450px;
+  margin: -10px auto;
+  padding: 25px;
+  padding-top: 40px;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+#form-agregar input,
+#form-agregar select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  background: #fafafa;
+  transition: 0.2s ease;
+}
+#form-agregar input:focus,
+#form-agregar select:focus {
+  border-color: #303031;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(48,48,49,0.4);
+}
+
 .div-submit {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+.div-submit > button {
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file-input-container input[type="file"] {
+  display: none; /* Oculta el input original */
+}
+
+#file-label {
+  padding: 12px;
+  text-align: center;
+background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+#file-label:hover {
+  background: #bebebe;
+}
+
+#file-name {
+  font-size: 14px;
+  color: #444;
+  padding-left: 4px;
 }

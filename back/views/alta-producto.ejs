@@ -71,14 +71,23 @@
     <nav>
       <button id="btn-cancelar">Cancelar</button>
     </nav>
+
+
     <main>
+
       <section class="welcome-section">
         <h2>Alta de producto</h2>
+        
         <form id="form-agregar">
           <input type="text" name="nombre" placeholder="Ingrese el nombre...">
           <input type="number" name="precio" placeholder="Ingrese el precio...">
-          <input type="file" name="imagen">
+          <div class="file-input-container" >
+            <input type="file" name="imagen" id="imagen">
+            <label for="imagen" id="file-label"">Elegir Imagen </label>
+            <span id="file-name">No se ha seleccionado ningún archivo</span>
+          </div>
           <select name="categoria" id="">
+            <option value="" disabled selected>Seleccione una categoría...</option>
             <option value="Plafon">Plafon</option>
             <option value="Farol">Farol</option>
           </select>
@@ -88,6 +97,8 @@
         </form>
       </section>
     </main>
+
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="/public/js/alta-producto.js"></script>
   </body>
