@@ -18,4 +18,4 @@ function validarDatos(req, res, next) {
   }
 }
 
-module.exports = { validarDatos };
+export { validarDatos };

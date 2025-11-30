@@ -1,5 +1,5 @@
-const Administrador = require('../models/administrador');
-const { comparePassword } = require('../utils/bcrypt');
+import Administrador from '../models/administrador.js';
+import { comparePassword } from '../utils/bcrypt.js';
 
 async function validarRegistro(req, res, next) {
   try {
@@ -47,4 +47,4 @@ async function validarLogin(req, res, next) {
   }
 }
 
-module.exports = { validarRegistro, validarLogin };
+export { validarRegistro, validarLogin };

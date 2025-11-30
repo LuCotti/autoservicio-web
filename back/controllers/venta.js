@@ -1,5 +1,5 @@
-const { Venta, Producto } = require('../models/relaciones.js');
-const PDFDocument = require('pdfkit');
+import { Venta, Producto } from '../models/relaciones.js';
+import PDFDocument from 'pdfkit';
 
 function descargarTicket(req, res) {
   res.setHeader('Content-Type', 'application/pdf');
@@ -74,4 +74,4 @@ async function traerTodas(req, res) {
   }
 }
 
-module.exports = { descargarTicket, registrar, traerPorId, traerTodas };
+export { descargarTicket, registrar, traerPorId, traerTodas };

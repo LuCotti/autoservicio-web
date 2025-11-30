@@ -1,5 +1,5 @@
-const Administrador = require('../models/administrador');
-const { hashPassword } = require('../utils/bcrypt');
+import Administrador from '../models/administrador.js';
+import { hashPassword } from '../utils/bcrypt.js';
 
 async function registrarUsuario(req, res) {
   try {
@@ -33,4 +33,9 @@ function irADashboard(req, res) {
   res.render('../views/dashboard');
 }
 
-module.exports = { registrarUsuario, irALogin, irADashboardJSON, irADashboard };
+export {
+  registrarUsuario,
+  irALogin,
+  irADashboardJSON,
+  irADashboard
+};

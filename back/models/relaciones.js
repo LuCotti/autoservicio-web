@@ -1,7 +1,7 @@
-const Producto = require('./producto');
-const Venta = require('./venta');
+import Producto from './producto.js';
+import Venta from './venta.js';
 
 Producto.belongsToMany(Venta, { through: 'producto_venta', foreignKey: 'productoId' });
 Venta.belongsToMany(Producto, { through: 'producto_venta', foreignKey: 'ventaId' });
 
-module.exports = { Producto, Venta };
+export { Producto, Venta };

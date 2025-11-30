@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+import bcrypt from 'bcrypt';
 
 // Función para encriptar password
 async function hashPassword(plainTextPassword) {
@@ -12,7 +12,4 @@ async function comparePassword(plainTextPassword, hashedPassword) {
     return await bcrypt.compare(plainTextPassword, hashedPassword);
 }
 
-module.exports = {
-    hashPassword,
-    comparePassword
-};
+export {hashPassword, comparePassword};

@@ -1,10 +1,10 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const cors = require('cors');
+import cors from 'cors';
 const port = 3000;
-const administradorRouter = require('./routes/administrador.routes');
-const productoRouter = require('./routes/producto.routes');
-const ventaRouter = require('./routes/venta.routes');
+import administradorRouter from './routes/administrador.routes.js';
+import productoRouter from './routes/producto.routes.js'
+import ventaRouter from './routes/venta.routes.js';
 
 app.disable('x-powered-by');
 app.use(express.json());

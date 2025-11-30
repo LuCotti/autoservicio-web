@@ -1,7 +1,8 @@
-const router = require("express").Router();
-const upload = require('../middlewares/multer');
-const { crear, irACrear, irAModificar, traerPorCategoria, traerTodos, traerTodosConPaginacion, modificar, darDeBaja, eliminar } = require('../controllers/producto');
-const { validarDatos } = require('../middlewares/producto');
+import { Router } from 'express';
+const router = Router();
+import upload from '../middlewares/multer.js';
+import { crear, irACrear, irAModificar, traerPorCategoria, traerTodos, traerTodosConPaginacion, modificar, darDeBaja, eliminar } from '../controllers/producto.js';
+import { validarDatos } from '../middlewares/producto.js';
 
 // Crear un producto
 router.post("/", upload.single("imagen"), validarDatos, crear);
@@ -24,4 +25,4 @@ router.put("/activo/:id", darDeBaja);
 // Eliminar un producto
 router.delete("/:id", eliminar);
 
-module.exports = router;
+export default router;

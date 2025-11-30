@@ -1,4 +1,4 @@
-const { Producto } = require("../models/relaciones.js");
+import { Producto } from '../models/relaciones.js';
 
 async function crear(req, res) {
   try{
@@ -173,4 +173,4 @@ async function eliminar(req, res) {
   }
 }
 
-module.exports = { crear, irACrear, irAModificar, traerPorCategoria, traerTodos, traerTodosConPaginacion, modificar, darDeBaja, eliminar };
+export {crear, irACrear, irAModificar, traerPorCategoria, traerTodos, traerTodosConPaginacion, modificar, darDeBaja, eliminar};
