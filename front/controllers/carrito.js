@@ -19,7 +19,8 @@ btnCarrito.onclick = () => {
 };
 
 btnSalir.onclick = () => {
-  localStorage.clear();
+  localStorage.removeItem('cliente');
+  localStorage.removeItem('productos');
   location.replace("./bienvenida.html");
 };
 
