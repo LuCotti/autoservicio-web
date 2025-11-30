@@ -59,7 +59,7 @@ const page = Pagination({
     div.innerHTML = `
       <img src="http://localhost:3000/uploads/${p.imagen}">
       <p class="product-name">${p.nombre}</p>
-      <p class="product-price">$${p.precio},00</p>
+      <p class="product-price">$${p.precio}</p>
       <p class="cuotas-p">6 cuotas sin interés de $${(p.precio / 6).toFixed(2)}</p>
       ${estaGuardado(p.id) 
       ? `<button id="btn-quitar-${p.id}">Quitar del carrito</button>` 
@@ -151,7 +151,7 @@ function mostrarGuardados() {
             p.cantidad--;
             localStorage.setItem("productos", JSON.stringify(productos));
             spanCantidad.innerText = p.cantidad;
-            precioTotal = precioTotal - p.precio;
+            precioTotal = precioTotal - parseFloat(p.precio);
             precioTotalElement.innerText = `Precio total: $${precioTotal}`;
           }
         });
@@ -161,12 +161,12 @@ function mostrarGuardados() {
           p.cantidad++;
           localStorage.setItem("productos", JSON.stringify(productos));
           spanCantidad.innerText = p.cantidad;
-          precioTotal = precioTotal + p.precio;
+          precioTotal = precioTotal + parseFloat(p.precio);
           precioTotalElement.innerText = `Precio total: $${precioTotal}`;
         });
       }
 
-      precioTotal += p.precio;
+      precioTotal += parseFloat(p.precio);
       arrayId.push(p.id);
     }
   }
@@ -182,7 +182,7 @@ function crearCardCarrito(producto) {
   div.innerHTML = `
   <img src="${apiUrl}/uploads/${producto.imagen}">
   <p class="product-name">${producto.nombre}</p>
-  <p class="product-price">$${producto.precio},00</p>
+  <p class="product-price">$${producto.precio}</p>
   <p class="cuotas-p">6 cuotas sin interés de $${(producto.precio / 6).toFixed(2)}</p>
   <div class="card-buttons">
     <div class="div-quitar">
