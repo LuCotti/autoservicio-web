@@ -1,6 +1,7 @@
 import { Pagination } from "./pagination.js";
-// ------------------------------VARIABLES------------------------------
+// ------------------------------ Variables ------------------------------
 const apiUrl = 'http://localhost:3000';
+const nombreEmpresa = 'Luciano Iluminación';
 const sectionProductos = document.getElementById("section-productos");
 const divProducts = document.getElementById('products');
 const categoriaA = "Farol";
@@ -8,7 +9,7 @@ const categoriaB = "Plafon";
 const response = await fetch(apiUrl + "/producto");
 const productos = await response.json();
 
-// ------------------------------FUNCIONES------------------------------
+// ------------------------------ Functions ------------------------------
 function obtenerTema() {
   return localStorage.getItem('tema');
 }
@@ -316,4 +317,28 @@ function obtenerPosicion(producto) {
   return index;
 }
 
-export { apiUrl, sectionProductos, categoriaA, categoriaB, productos, obtenerTema, cambiarTema, ingresar, irALogin, page, mostrarGuardados, mostrarProductos, confirmarCompra, mostrarProductosTicket, crearCardTicket, crearCard, eliminarElementos, traerGuardados, guardarProducto, estaGuardado, quitarProducto, obtenerPosicion };
+export {
+  apiUrl,
+  nombreEmpresa,
+  sectionProductos,
+  categoriaA,
+  categoriaB,
+  productos,
+  obtenerTema,
+  cambiarTema,
+  ingresar,
+  irALogin,
+  page,
+  mostrarGuardados,
+  mostrarProductos,
+  confirmarCompra,
+  mostrarProductosTicket,
+  crearCardTicket,
+  crearCard,
+  eliminarElementos,
+  traerGuardados,
+  guardarProducto,
+  estaGuardado,
+  quitarProducto,
+  obtenerPosicion,
+};

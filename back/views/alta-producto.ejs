@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--*************** Style Sheets ***************-->
-    <link rel="stylesheet" href="/public/css/header.css">
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/css/alta-producto.css">
-
-    <!--*************** Fonts ***************-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <!--*************** Google Material Icons ***************-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,keyboard_return,login"/>
-    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
-
-    <!--*************** Dark Mode ***************-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!----------------- Style Sheets ----------------->
+    <link rel="stylesheet" href="/public/css/header.css" />
+    <link rel="stylesheet" href="/public/css/styles.css" />
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="/public/css/alta-producto.css" />
+    <!----------------- Fonts ----------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <!----------------- Google Material Icons ----------------->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,keyboard_return,login"
+    />
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
+    <!----------------- Dark Mode ----------------->
     <script>
       let tema = localStorage.getItem('tema');
       if (tema === null || tema === 'claro') {
@@ -28,86 +30,68 @@
         document.documentElement.classList.add('oscuro');
       }
     </script>
-    
-    <title>Alta de producto - Bichito de Luz</title>
+    <title>Alta de producto - Luciano Iluminación</title>
   </head>
   <body>
     <div class="integrantes-banner">
-      <p>Desarrollado por: COTTI, Luciano Ariel y RODRIGUEZ, Gonzalo Ezequiel</p>
+      <p>
+        Desarrollado por: COTTI, Luciano Ariel y RODRIGUEZ, Gonzalo Ezequiel
+      </p>
     </div>
     <div class="promosBancarias-container">
-      3 CUOTAS SIN INTERÉS | 6 CUOTAS SIN INTERÉS DESDE $400.000 | ENVÍO GRATIS SUPERANDO LOS $300000 | 20% OFF EN EFECTIVO
+      3 CUOTAS SIN INTERÉS | 6 CUOTAS SIN INTERÉS DESDE $400.000 | ENVÍO GRATIS
+      SUPERANDO LOS $300.000 | 20% OFF EN EFECTIVO
     </div>
     <header>
       <div class="header-left-section">
         <div class="logo-container">
-          <img src="/public/favicon.ico" alt="Logo">
-          <h1>Bichito de luz</h1>
+          <img src="/public/favicon.ico" alt="Logo" />
+          <h1>Luciano Iluminación</h1>
         </div>
       </div>
       <div class="header-middlle-section">
-        <p>Todo lo que buscas para iluminar</p>
+        <p>Todo lo que buscás para iluminar</p>
       </div>
       <div class="header-right-section">
         <button class="header-button" id="btn-tema">
-          <span class="material-symbols-outlined">
-            dark_mode
-          </span>
-          <div>
-            DarkMode
-          </div>
+          <span class="material-symbols-outlined">dark_mode</span>
+          <div>Cambiar tema</div>
         </button>
-
         <button class="header-button" id="btn-salir">
-        <span class="material-symbols-outlined">
-          keyboard_return
-        </span>
-          <div>
-            Volver
-          </div>
+          <span class="material-symbols-outlined">keyboard_return</span>
+          <div>Volver</div>
         </button>
       </div>
     </header>
     <nav>
       <button id="btn-cancelar">Cancelar</button>
     </nav>
-
-
     <main>
-
       <section class="welcome-section">
         <h2>Alta de producto</h2>
-        
         <form id="form-agregar">
-
-          <input type="text" name="nombre" placeholder="Ingrese el nombre...">
-
-          <input type="number" name="precio" placeholder="Ingrese el precio..." step="0.01">
-
-          <div class="file-input-container" >
-            <input type="file" name="imagen" id="imagen">
-            <label for="imagen" id="file-label">
-              Elegir Imagen
-            </label>
-            <span id="file-name">
-              No se ha seleccionado ningún archivo
-            </span>
+          <input type="text" name="nombre" placeholder="Nombre" />
+          <input
+            type="number"
+            name="precio"
+            placeholder="Precio"
+            step="0.01"
+          />
+          <div class="file-input-container">
+            <input type="file" name="imagen" id="imagen" />
+            <label for="imagen" id="file-label">Elegir Imagen</label>
+            <span id="file-name">No se ha seleccionado ningún archivo</span>
           </div>
-
           <select name="categoria" id="">
-            <option value="Plafon">Plafon</option>
             <option value="Farol">Farol</option>
+            <option value="Plafon">Plafon</option>
           </select>
-
           <div class="div-submit">
             <button type="submit">Agregar</button>
           </div>
         </form>
-
       </section>
     </main>
-
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="/public/js/alta-producto.js"></script>
   </body>

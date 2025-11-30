@@ -1,18 +1,24 @@
-import { obtenerTema, cambiarTema, apiUrl, traerGuardados, mostrarProductosTicket } from './utils/funciones-variables.js';
+import {
+  nombreEmpresa,
+  obtenerTema,
+  cambiarTema,
+  apiUrl,
+  traerGuardados,
+  mostrarProductosTicket,
+} from './utils/funciones-variables.js';
 const body = document.getElementsByTagName('body')[0];
-const btnTema = document.getElementById("btn-tema");
-const clienteElement = document.getElementById("cliente");
-const fechaElement = document.getElementById("fecha");
-const empresaElement = document.getElementById("empresa");
-const sectionTicket = document.getElementById("section-ticket");
-const tableBody = document.getElementById("table-body");
-const precioTotalElement = document.getElementById("precio-total");
-const btnDescargar = document.getElementById("btn-descargar");
-const btnSalir = document.getElementById("btn-salir");
+const btnTema = document.getElementById('btn-tema');
+const clienteElement = document.getElementById('cliente');
+const fechaElement = document.getElementById('fecha');
+const empresaElement = document.getElementById('empresa');
+const sectionTicket = document.getElementById('section-ticket');
+const tableBody = document.getElementById('table-body');
+const precioTotalElement = document.getElementById('precio-total');
+const btnDescargar = document.getElementById('btn-descargar');
+const btnSalir = document.getElementById('btn-salir');
 const productosCarrito = traerGuardados();
-const nombreCliente = localStorage.getItem("cliente");
+const nombreCliente = localStorage.getItem('cliente');
 const fecha = new Date().toLocaleString();
-const nombreEmpresa = 'Bichito de Luz';
 let precioTotal = mostrarProductosTicket(tableBody, precioTotalElement);
 
 let tema = obtenerTema();
@@ -27,18 +33,18 @@ empresaElement.innerText = `Empresa: ${nombreEmpresa}`;
 btnDescargar.onclick = async () => {
   try {
     const body = {
-      'nombreCliente': nombreCliente,
-      'fecha': fecha,
-      'nombreEmpresa': nombreEmpresa,
-      'productosCarrito': productosCarrito,
-      'precioTotal': precioTotal,
+      nombreCliente: nombreCliente,
+      fecha: fecha,
+      nombreEmpresa: nombreEmpresa,
+      productosCarrito: productosCarrito,
+      precioTotal: precioTotal,
     };
     const response = await fetch(`${apiUrl}/venta/ticket`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
@@ -59,5 +65,5 @@ btnDescargar.onclick = async () => {
 btnSalir.onclick = async () => {
   localStorage.removeItem('cliente');
   localStorage.removeItem('productos');
-  location.replace("./bienvenida.html");
-}
+  location.replace('./bienvenida.html');
+};
