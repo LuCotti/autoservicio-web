@@ -2,7 +2,6 @@ import { Pagination } from "./pagination.js";
 // ------------------------------ Variables ------------------------------
 const apiUrl = 'http://localhost:3000';
 const nombreEmpresa = 'Luciano Iluminación';
-const sectionProductos = document.getElementById("section-productos");
 const divProducts = document.getElementById('products');
 const categoriaA = "Farol";
 const categoriaB = "Plafon";
@@ -38,8 +37,7 @@ async function ingresar(inputNombre, mensajeElement) {
 }
 
 async function irALogin() {
-  const  response = await fetch(apiUrl + '/administrator')
-  location.assign(response.url);
+  location.href = apiUrl + '/administrator';
 }
 
 
@@ -54,7 +52,6 @@ const page = Pagination({
     card.classList.add("product-card");
     const div = document.createElement('div');
 
-
     div.id = `div-producto-${p.id}`;
     div.classList.add('product');
     div.innerHTML = `
@@ -68,7 +65,6 @@ const page = Pagination({
     `;
 
     card.appendChild(div);
-
 
     const btnAgregar = div.querySelector(`#btn-agregar-${p.id}`);
     const btnQuitar  = div.querySelector(`#btn-quitar-${p.id}`);
@@ -234,50 +230,6 @@ function crearCardTicket(producto) {
   return tr;
 }
 
-function mostrarProductos(categoria) {
-  eliminarElementos(sectionProductos);
-  if (productos.length === 0) {
-    sectionProductos.innerText = "No hay productos en la base de datos";
-  } else {
-    sectionProductos.innerText = "";
-    for (let p of productos) {
-      if (p.activo && categoria === p.categoria) {
-        const div = crearCard(p);
-        sectionProductos.appendChild(div);
-  
-        if (estaGuardado(p.id)) {
-          const btnQuitar = document.getElementById(`btn-quitar-${p.id}`);
-          btnQuitar.addEventListener("click", () => {
-            quitarProducto(p);
-            window.location.reload();
-          });
-        } else {
-          const btnAgregar = document.getElementById(`btn-agregar-${p.id}`);
-          btnAgregar.addEventListener("click", () => {
-            guardarProducto(p);
-            window.location.reload();
-          });
-        }
-      } else {
-        continue;
-      }
-    }
-  }
-}
-
-function crearCard(producto) {
-  const div = document.createElement("div");
-  div.id = `div-producto-${producto.id}`;
-  div.innerHTML = `
-  <img src="${apiUrl}/uploads/${producto.imagen}">
-  <p>Producto Nº: ${producto.id}</p>
-  <p>Nombre: ${producto.nombre}</p>
-  <p>Precio: ${producto.precio}</p>
-  ${estaGuardado(producto.id) ? `<button id="btn-quitar-${producto.id}">Quitar del carrito</button>` : `<button id="btn-agregar-${producto.id}">Agregar al carrito</button>`}
-  `;
-  return div;
-}
-
 function eliminarElementos(contenedor) {
   while (contenedor.firstChild) contenedor.removeChild(contenedor.firstChild);
 }
@@ -320,7 +272,6 @@ function obtenerPosicion(producto) {
 export {
   apiUrl,
   nombreEmpresa,
-  sectionProductos,
   categoriaA,
   categoriaB,
   productos,
@@ -330,11 +281,9 @@ export {
   irALogin,
   page,
   mostrarGuardados,
-  mostrarProductos,
   confirmarCompra,
   mostrarProductosTicket,
   crearCardTicket,
-  crearCard,
   eliminarElementos,
   traerGuardados,
   guardarProducto,
