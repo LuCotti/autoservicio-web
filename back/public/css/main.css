@@ -1,22 +1,22 @@
-main{
+main {
   padding: 20px;
 }
-.welcome-section{
-   text-align: center;
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   align-items: center;
+.welcome-section {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
-.welcome-section > h2{
-  font-family: "Playfair Display", serif; 
+.welcome-section > h2 {
+  font-family: 'Playfair Display', serif;
   font-size: 60px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 18px;
   margin-bottom: 18px;
-  animation: letterBounce 3s  infinite;
+  animation: letterBounce 3s infinite;
 }
 @keyframes letterBounce {
   /* Inicio */
@@ -46,10 +46,9 @@ main{
   100% {
     letter-spacing: 1px;
   }
-
 }
 
-input{
+input {
   font-size: 35px;
   width: auto;
   box-sizing: border-box;
@@ -67,16 +66,11 @@ button {
   border-style: none;
   border-radius: 8px;
   height: 45px;
-
 }
 .btn-ingresar > .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 200,
-  'GRAD' 200,
-  'opsz' 20
+  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 200, 'opsz' 20;
 }
-button:hover{
+button:hover {
   background-color: lightgrey;
   border-radius: 5px;
 }
@@ -86,24 +80,25 @@ button:hover{
   font-style: italic;
 }
 
-#buttons{
-    display: flex;
+#buttons {
+  display: flex;
 }
 
-#btn-plafones, #btn-faroles{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 100px;
-    margin-bottom: 5px;
-    margin-left: 4px;
-    flex-direction: row;
-    cursor: pointer;
-    border-style: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
+#btn-plafones,
+#btn-faroles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  flex-direction: row;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .div-finalizar-compra {

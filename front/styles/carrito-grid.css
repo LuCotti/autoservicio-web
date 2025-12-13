@@ -1,69 +1,65 @@
 /*------------GRID AND CARD------------*/
-.products-grid{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 15px;
-    display: grid;
-    grid-template-columns: repeat(4, 200px);
-    column-gap: 30px;
-    row-gap: 30px;
-    align-items: start;
-    justify-content: start;
-
+.products-grid {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  column-gap: 30px;
+  row-gap: 30px;
+  align-items: start;
+  justify-content: start;
 }
-.product-card{
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* IMPORTANTE */
-
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* IMPORTANTE */
 }
-.products-grid img{
-    width: 100%;
-    object-fit: contain;
-    border-radius: 20px;
-    align-self: flex-start; /* garantiza que no se centre */
+.products-grid img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  align-self: flex-start; /* garantiza que no se centre */
 }
 .product {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-
-
 
 /*------------PRODUCT INFO------------*/
-.product-name{
-    color: #303031;
-    font-size: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 6px;
-    padding-right: 6px;
+.product-name {
+  color: #303031;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
-.product-price{
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-size: 20px;
-    font-weight: 600;
-    padding-left: 6px;
-    padding-right: 6px;
+.product-price {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .product-card button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: auto;
-    margin-bottom: 5px;
-    margin-left: 4px;
-    flex-direction: row;
-    cursor: pointer;
-    border-style: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: auto;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  flex-direction: row;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: auto;
 }
 .card-buttons {
-    margin-top: auto;  /* Empuja este div hacia el fondo */
+  margin-top: auto; /* Empuja este div hacia el fondo */
 }
