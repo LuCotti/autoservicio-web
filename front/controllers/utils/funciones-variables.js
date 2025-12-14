@@ -2,7 +2,6 @@ import { Pagination } from './pagination.js';
 // ------------------------------ Variables ------------------------------
 const apiUrl = 'http://localhost:3000';
 const nombreEmpresa = 'Luciano Iluminación';
-const divProducts = document.getElementById('products');
 const categoriaA = 'Farol';
 const categoriaB = 'Plafon';
 const response = await fetch(apiUrl + '/producto');
@@ -117,7 +116,7 @@ const page = Pagination({
   },
 });
 
-function mostrarGuardados() {
+function mostrarGuardados(divProducts) {
   let precioTotal = 0;
   let arrayId = [];
   eliminarElementos(divProducts);
@@ -143,10 +142,14 @@ function mostrarGuardados() {
       btnQuitar.addEventListener('click', () => {
         quitarProducto(p);
         document.getElementById(`card-producto-${p.id}`).remove();
+        precioTotal -= parseFloat(p.precio * p.cantidad);
+        precioTotal = Number(precioTotal.toFixed(2));
+        precioTotalElement.innerText = `Precio total: $${precioTotal}`;
         if (!divProducts.firstChild) {
           divProducts.innerText = 'No hay productos en el carrito';
           document.getElementById('precio-total').style.display = 'none';
-          document.getElementById('btn-finalizar-compra').style.display = 'none';
+          document.getElementById('btn-finalizar-compra').style.display =
+            'none';
         }
         Toastify({
           text: 'Producto eliminado del carrito.',
@@ -170,7 +173,8 @@ function mostrarGuardados() {
             p.cantidad--;
             localStorage.setItem('productos', JSON.stringify(productos));
             spanCantidad.innerText = p.cantidad;
-            precioTotal = precioTotal - parseFloat(p.precio);
+            precioTotal -= parseFloat(p.precio);
+            precioTotal = Number(precioTotal.toFixed(2));
             precioTotalElement.innerText = `Precio total: $${precioTotal}`;
           }
         });
@@ -180,12 +184,14 @@ function mostrarGuardados() {
           p.cantidad++;
           localStorage.setItem('productos', JSON.stringify(productos));
           spanCantidad.innerText = p.cantidad;
-          precioTotal = precioTotal + parseFloat(p.precio);
+          precioTotal += parseFloat(p.precio);
+          precioTotal = Number(precioTotal.toFixed(2));
           precioTotalElement.innerText = `Precio total: $${precioTotal}`;
         });
       }
 
       precioTotal += parseFloat(p.precio);
+      precioTotal = Number(precioTotal.toFixed(2));
       arrayId.push(p.id);
     }
   }
