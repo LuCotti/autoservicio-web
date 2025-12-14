@@ -18,8 +18,6 @@ function cambiarTema() {
   }
 }
 
-function volverAFront() {}
-
 function mostrarProductos(categoria, sectionProductos) {
   eliminarElementos(sectionProductos);
   if (productos.length === 0) {
@@ -116,7 +114,6 @@ function mostrarProductos(categoria, sectionProductos) {
                   const id = boton.id.split('-')[2];
                   const response = await fetch(`${apiUrl}/producto/${id}`, {
                     method: 'DELETE',
-                    //TODO: baja logica
                   });
                   if (response.ok) {
                     document.getElementById(`tr-producto-${id}`).remove();
