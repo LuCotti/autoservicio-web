@@ -45,7 +45,7 @@ const page = Pagination({
   baseURL: 'http://localhost:3000/producto',
   containerId: 'products',
 
-  // cómo dibujar un producto
+  // Cómo dibujar un producto
   renderItem: (p) => {
     const card = document.createElement('div');
     card.classList.add('product-card');
@@ -77,7 +77,7 @@ const page = Pagination({
         guardarProducto(p);
         page.render();
         Toastify({
-          text: '¡Producto guardado exitosamente!',
+          text: 'Producto agregado al carrito.',
           duration: 3000,
           destination: 'https://github.com/apvarun/toastify-js',
           newWindow: true,
@@ -98,7 +98,7 @@ const page = Pagination({
         quitarProducto(p);
         page.render();
         Toastify({
-          text: '¡Producto eliminado exitosamente!',
+          text: 'Producto eliminado del carrito.',
           duration: 3000,
           destination: 'https://github.com/apvarun/toastify-js',
           newWindow: true,
@@ -131,8 +131,8 @@ function mostrarGuardados() {
     document.getElementById('precio-total').style.display = 'block';
     document.getElementById('btn-finalizar-compra').style.display = 'block';
     for (let p of productos) {
-      let div = crearCardCarrito(p);
-      divProducts.appendChild(div);
+      let card = crearCardCarrito(p);
+      divProducts.appendChild(card);
 
       let btnQuitar = document.getElementById(`btn-quitar-${p.id}`);
       let btnRestar = document.getElementById(`btn-restar-${p.id}`);
@@ -142,7 +142,26 @@ function mostrarGuardados() {
 
       btnQuitar.addEventListener('click', () => {
         quitarProducto(p);
-        window.location.reload();
+        document.getElementById(`card-producto-${p.id}`).remove();
+        if (!divProducts.firstChild) {
+          divProducts.innerText = 'No hay productos en el carrito';
+          document.getElementById('precio-total').style.display = 'none';
+          document.getElementById('btn-finalizar-compra').style.display = 'none';
+        }
+        Toastify({
+          text: 'Producto eliminado del carrito.',
+          duration: 3000,
+          destination: 'https://github.com/apvarun/toastify-js',
+          newWindow: true,
+          close: true,
+          gravity: 'top',
+          position: 'right',
+          stopOnFocus: true,
+          style: {
+            background: '#0e87beff',
+          },
+          onClick: function () {},
+        }).showToast();
       });
 
       if (btnRestar) {
@@ -175,6 +194,7 @@ function mostrarGuardados() {
 
 function crearCardCarrito(producto) {
   const card = document.createElement('div');
+  card.id = `card-producto-${producto.id}`;
   card.classList.add('product-card');
   const div = document.createElement('div');
   div.id = `div-producto-${producto.id}`;
