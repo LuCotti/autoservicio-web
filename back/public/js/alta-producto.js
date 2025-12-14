@@ -18,10 +18,16 @@ formAgregar.addEventListener('submit', (e) => {
 
 const inputFile = document.getElementById('imagen');
 const fileName = document.getElementById('file-name');
+const imagePreview = document.getElementById('image-preview');
 
 inputFile.addEventListener('change', () => {
-  fileName.textContent =
-    inputFile.files.length > 0
-      ? inputFile.files[0].name
-      : 'No se ha seleccionado ningún archivo';
+  const file = inputFile.files[0];
+  if (!file) {
+    fileName.textContent = 'No se ha seleccionado ningún archivo';
+    imagePreview.style.display = 'none';
+  } else {
+    fileName.textContent = inputFile.files[0].name;
+    imagePreview.src = URL.createObjectURL(file);
+    imagePreview.style.display = 'block';
+  }
 });
