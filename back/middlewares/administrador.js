@@ -1,19 +1,25 @@
 import Administrador from '../models/administrador.js';
 import { comparePassword } from '../utils/bcrypt.js';
+import zod from 'zod';
+
+const User = zod.object({
+  email: zod.email(),
+  password: zod.string().min(8),
+});
 
 async function validarRegistro(req, res, next) {
   try {
-    const { user, pass } = req.body;
-    if (!user || !pass) {
-      throw new Error('Faltan datos');
+    const { email, password } = req.body;
+    if (!email || !password) {
+      res.status(400).json({ message: 'Faltan datos' });
     }
+    User.parse(req.body);
     next();
   } catch (error) {
+    console.log(error);
     if (error instanceof TypeError) {
-      console.log(error);
       res.status(400).json({ message: 'Falta algún parámetro' });
     } else {
-      console.log(error);
       res.status(500).json({ message: 'Error interno' });
     }
   }
