@@ -18,7 +18,7 @@ btnIngresar.addEventListener('click', async () => {
   const mail = inputMail.value;
   const pass = inputClave.value;
   const mensaje = document.getElementById('p-mensaje');
-  if (mail.length === 0 || pass.length === 0) {
+  if (!mail || !pass) {
     mensaje.innerText = 'Por favor, ingrese todos los datos...';
   } else {
     mensaje.innerText = '';

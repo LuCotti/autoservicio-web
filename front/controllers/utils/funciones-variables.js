@@ -26,7 +26,7 @@ function cambiarTema() {
 
 async function ingresar(inputNombre, mensajeElement) {
   const nombre = inputNombre.value;
-  if (nombre.length === 0) {
+  if (!nombre) {
     mensajeElement.innerText = 'Por favor, ingrese su nombre...';
   } else {
     mensajeElement.innerText = '';
