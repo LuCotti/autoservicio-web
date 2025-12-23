@@ -66,7 +66,7 @@ async function traerTodosConPaginacion(req, res) {
 }
 
 function irACrear(req, res) {
-  res.render('../views/alta-producto');
+  res.render('alta-producto');
 }
 
 async function irAModificar(req, res) {
@@ -76,7 +76,7 @@ async function irAModificar(req, res) {
     if (!producto) {
       return res.status(404).send('Producto no encontrado');
     }
-    res.render('../views/modificar-producto', { producto });
+    res.render('modificar-producto', { producto });
   } catch (error) {
     console.error('Error al obtener el producto', error);
     res.status(500).send('Error al cargar el producto');

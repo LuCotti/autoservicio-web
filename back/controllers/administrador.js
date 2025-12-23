@@ -25,7 +25,7 @@ async function registrarUsuario(req, res) {
 }
 
 function irALogin(req, res) {
-  res.render('../views/login');
+  res.render('login');
 }
 
 function irADashboardJSON(req, res) {
@@ -33,11 +33,11 @@ function irADashboardJSON(req, res) {
 }
 
 function irARegister(req, res) {
-  res.render('../views/register');
+  res.render('register');
 }
 
 function irADashboard(req, res) {
-  res.render('../views/dashboard');
+  res.render('dashboard');
 }
 
 export {
