@@ -12,34 +12,41 @@ const prevBtn = document.getElementById('prevBtn');
 // Primera carga
 page.render();
 
-btnTema.onclick = cambiarTema;
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
-btnAdministrador.onclick = () => {
+btnAdministrador.addEventListener('click', () => {
   irALogin('productos.html');
-};
+});
 
-btnProductos.onclick = () => {
+btnProductos.addEventListener('click', () => {
   location.reload();
-};
+});
 
-btnCarrito.onclick = () => {
+btnCarrito.addEventListener('click', () => {
   location.assign('./carrito.html');
-};
+});
 
-btnSalir.onclick = () => {
+btnSalir.addEventListener('click', () => {
   localStorage.removeItem('cliente');
   localStorage.removeItem('productos');
   location.replace('./bienvenida.html');
-};
+});
 
-btnFaroles.onclick = () => {
+btnFaroles.addEventListener('click', () => {
   page.setCategory('Farol');
-};
+});
 
-btnPlafones.onclick = () => {
+btnPlafones.addEventListener('click', () => {
   page.setCategory('Plafon');
-};
+});
 
 // Controles
-nextBtn.onclick = page.next;
-prevBtn.onclick = page.prev;
+nextBtn.addEventListener('click', () => {
+  page.next();
+});
+
+prevBtn.addEventListener('click', () => {
+  page.prev();
+});

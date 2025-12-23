@@ -24,13 +24,15 @@ let precioTotal = mostrarProductosTicket(tableBody, precioTotalElement);
 let tema = obtenerTema();
 if (tema === 'oscuro') body.classList.add('oscuro');
 
-btnTema.onclick = cambiarTema;
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
 clienteElement.innerText = `Cliente: ${nombreCliente}`;
 fechaElement.innerText = `Fecha: ${fecha}`;
 empresaElement.innerText = `Empresa: ${nombreEmpresa}`;
 
-btnDescargar.onclick = async () => {
+btnDescargar.addEventListener('click', async () => {
   try {
     const body = {
       nombreCliente: nombreCliente,
@@ -60,10 +62,10 @@ btnDescargar.onclick = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+});
 
-btnSalir.onclick = async () => {
+btnSalir.addEventListener('click', async () => {
   localStorage.removeItem('cliente');
   localStorage.removeItem('productos');
   location.replace('./bienvenida.html');
-};
+});

@@ -16,27 +16,30 @@ const btnFinalizarCompra = document.getElementById('btn-finalizar-compra');
 const nombreCliente = localStorage.getItem('cliente');
 const { precioTotal, arrayId } = mostrarGuardados(divProducts);
 precioTotalElement.innerText = `Precio total: $${precioTotal}`;
-btnTema.onclick = cambiarTema;
 
-btnAdministrador.onclick = () => {
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
+
+btnAdministrador.addEventListener('click', () => {
   irALogin('carrito.html');
-};
+});
 
-btnProductos.onclick = () => {
+btnProductos.addEventListener('click', () => {
   location.assign('./productos.html');
-};
+});
 
-btnCarrito.onclick = () => {
+btnCarrito.addEventListener('click', () => {
   location.reload();
-};
+});
 
-btnSalir.onclick = () => {
+btnSalir.addEventListener('click', () => {
   localStorage.removeItem('cliente');
   localStorage.removeItem('productos');
   location.replace('./bienvenida.html');
-};
+});
 
-btnFinalizarCompra.onclick = async () => {
+btnFinalizarCompra.addEventListener('click', async () => {
   confirmarCompra().then(async (result) => {
     if (result.isConfirmed) {
       const body = {
@@ -60,4 +63,4 @@ btnFinalizarCompra.onclick = async () => {
       }
     }
   });
-};
+});

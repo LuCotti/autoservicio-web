@@ -13,20 +13,22 @@ const sectionProductos = document.getElementById('section-productos');
 const params = new URLSearchParams(location.search);
 const view = params.get('view');
 
-btnTema.onclick = cambiarTema;
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
-btnAgregarProducto.onclick = () => {
+btnAgregarProducto.addEventListener('click', () => {
   location.assign(`/producto/alta?view=${view}`);
-};
+});
 
-btnCerrarSesion.onclick = () => {
+btnCerrarSesion.addEventListener('click', () => {
   location.replace(`/administrator?view=${view}`);
-};
+});
 
-btnFaroles.onclick = () => {
+btnFaroles.addEventListener('click', () => {
   mostrarProductos(categoriaA, sectionProductos);
-};
+});
 
-btnPlafones.onclick = () => {
+btnPlafones.addEventListener('click', () => {
   mostrarProductos(categoriaB, sectionProductos);
-};
+});

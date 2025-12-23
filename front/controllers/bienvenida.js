@@ -9,11 +9,14 @@ const inputNombre = document.getElementById('input-nombre');
 const mensajeElement = document.getElementById('p-mensaje');
 const btnAdministrador = document.getElementById('btn-administrador');
 
-btnTema.onclick = cambiarTema;
-btnIngresar.onclick = () => {
-  ingresar(inputNombre, mensajeElement);
-};
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
-btnAdministrador.onclick = () => {
+btnIngresar.addEventListener('click', () => {
+  ingresar(inputNombre, mensajeElement);
+});
+
+btnAdministrador.addEventListener('click', () => {
   irALogin('bienvenida.html');
-}
+});

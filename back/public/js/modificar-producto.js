@@ -8,11 +8,13 @@ const inputImage = document.getElementById('imagen');
 const params = new URLSearchParams(location.search);
 const view = params.get('view');
 
-btnTema.onclick = cambiarTema;
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
-btnCancelar.onclick = () => {
+btnCancelar.addEventListener('click', () => {
   location.assign(`/administrator/dashboard?view=${view}`);
-};
+});
 
 inputImage.addEventListener('change', () => {
   const file = inputImage.files[0];

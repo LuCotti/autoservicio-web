@@ -50,17 +50,17 @@ function mostrarProductos(categoria, sectionProductos) {
 
         const arrayBtnModificar = tableBody.getElementsByClassName('modificar');
         for (let boton of arrayBtnModificar) {
-          document.getElementById(boton.id).onclick = () => {
+          document.getElementById(boton.id).addEventListener('click', () => {
             const id = boton.id.split('-')[2];
             localStorage.setItem('id-modificar', id);
             //TODO: REDIRECCION A :
             window.location.href = `/producto/modificar/${id}?view=${view}`;
-          };
+          });
         }
 
         const arrayBtnBajar = tableBody.getElementsByClassName('bajar');
         for (let boton of arrayBtnBajar) {
-          boton.onclick = async () => {
+          boton.addEventListener('click', async () => {
             confirmarBaja().then(async (result) => {
               if (result.isConfirmed) {
                 try {
@@ -104,12 +104,12 @@ function mostrarProductos(categoria, sectionProductos) {
                 }
               }
             });
-          };
+          });
         }
 
         const arrayBtnEliminar = tableBody.getElementsByClassName('eliminar');
         for (let boton of arrayBtnEliminar) {
-          document.getElementById(boton.id).onclick = async () => {
+          document.getElementById(boton.id).addEventListener('click', async () => {
             confirmarEliminacion().then(async (result) => {
               if (result.isConfirmed) {
                 try {
@@ -141,7 +141,7 @@ function mostrarProductos(categoria, sectionProductos) {
                 }
               }
             });
-          };
+          });
         }
       } else {
         continue;

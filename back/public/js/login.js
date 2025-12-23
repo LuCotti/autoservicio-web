@@ -8,11 +8,13 @@ const btnRegistrar = document.getElementById('btn-registrar');
 const params = new URLSearchParams(location.search);
 const view = params.get('view');
 
-btnTema.onclick = cambiarTema;
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
-btnSalir.onclick = () => {
+btnSalir.addEventListener('click', () => {
   location.href = frontUrl + `/front/views/${view}`;
-};
+});
 
 btnIngresar.addEventListener('click', async () => {
   const mail = inputMail.value;

@@ -5,11 +5,13 @@ const formAgregar = document.getElementById('form-agregar');
 const params = new URLSearchParams(location.search);
 const view = params.get('view');
 
-btnTema.onclick = cambiarTema;
+btnTema.addEventListener('click', () => {
+  cambiarTema();
+});
 
-btnCancelar.onclick = () => {
+btnCancelar.addEventListener('click', () => {
   location.replace(`/administrator/dashboard?view=${view}`);
-};
+});
 
 formAgregar.addEventListener('submit', (e) => {
   e.preventDefault();
