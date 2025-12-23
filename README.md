@@ -65,10 +65,10 @@ Aplicación web full stack para realizar pedidos mediante un sistema de autoserv
 ![Captura de modificación de producto](./images/modificar-producto.png)
 
 ## Instalación
-1. Clonar el repositorio
-2. Instalar las dependencias con `npm install`
-3. Configurar las variables de entorno
-4. Crear una base de datos local
+1. Clonar el repositorio.
+2. Instalar las dependencias ejecutando `npm install`.
+3. Crear una base de datos MySQL local.
+4. Crear el archivo `.env` en la carpeta `/back` y configurar la cadena de conexión a la base de datos utilizando el nombre `STRING_DB`.
 
 ## Ejecución
 - Modo desarrollo:
