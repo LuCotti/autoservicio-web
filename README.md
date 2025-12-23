@@ -21,6 +21,7 @@ Aplicación web full stack para realizar pedidos mediante un sistema de autoserv
 - Express
 - EJS
 - bcrypt
+- zod
 - multer
 - pdfkit
 - sequelize
@@ -31,33 +32,37 @@ Aplicación web full stack para realizar pedidos mediante un sistema de autoserv
 ### Cliente
 
 #### Bienvenida
-![Captura de bienvenida](./images/image.png)
+![Captura de bienvenida](./images/bienvenida.png)
 
 #### Productos
-![Captura de productos](./images/image-2.png)
+![Captura de productos](./images/productos.png)
 
 #### Carrito
-![Captura de carrito](./images/image-3.png)
+![Captura de carrito](./images/carrito.png)
 
 #### Ticket en Web
-![Captura de ticket](./images/image-4.png)
+![Captura de ticket](./images/ticket-web.png)
 
 #### Ticket en PDF
-![Captura de ticket (PDF)](./images/image-5.png)
+![Captura de ticket (PDF)](./images/ticket-pdf.png)
 
 ### Administración
 
+#### Registro
+
+![Captura de registro](./images/registro.png)
+
 #### Login
-![Captura de login](./images/image-6.png)
+![Captura de login](./images/login.png)
 
 #### Dashboard
-![Captura de dashboard](./images/image-7.png)
+![Captura de dashboard](./images/dashboard.png)
 
 #### Alta de Producto
-![Captura de alta de producto](./images/image-8.png)
+![Captura de alta de producto](./images/alta-producto.png)
 
 #### Modificación de Producto
-![Captura de modificación de producto](./images/image-9.png)
+![Captura de modificación de producto](./images/modificar-producto.png)
 
 ## Instalación
 1. Clonar el repositorio
