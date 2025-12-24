@@ -69,7 +69,7 @@ Aplicación web full stack para realizar pedidos mediante un sistema de autoserv
 2. Instalar las dependencias ejecutando `npm install`.
 3. Crear una base de datos MySQL local.
 4. Crear el archivo `.env` dentro de la carpeta `/back` y configurar la cadena de conexión a la base de datos utilizando el nombre `STRING_DB`.
-5. Crear la carpeta `/uploads` dentro de la carpeta `/back`
+5. Crear la carpeta `/uploads` dentro de la carpeta `/back` para subida de imagenes.
 
 ## Ejecución
 - Modo desarrollo:
