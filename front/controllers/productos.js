@@ -26,14 +26,14 @@ btnProductos.addEventListener('click', () => {
 
 btnCarrito.addEventListener('click', () => {
   // location.href = './carrito.html';
-  location.href = './views/carrito.html';
+  location.href = '/views/carrito.html';
 });
 
 btnSalir.addEventListener('click', () => {
   localStorage.removeItem('cliente');
   localStorage.removeItem('productos');
   // location.href = './bienvenida.html';
-  location.href = './views/bienvenida.html';
+  location.href = '/views/bienvenida.html';
 });
 
 btnFaroles.addEventListener('click', () => {

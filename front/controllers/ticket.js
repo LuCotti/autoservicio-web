@@ -68,5 +68,5 @@ btnSalir.addEventListener('click', async () => {
   localStorage.removeItem('cliente');
   localStorage.removeItem('productos');
   // location.href = './bienvenida.html';
-  location.href = './views/bienvenida.html';
+  location.href = '/views/bienvenida.html';
 });
