@@ -11,12 +11,16 @@ app.disable('x-powered-by');
 app.use(express.json());
 app.use(
   cors({
-    // origin: [
-    //   'http://localhost:5500',
-    //   'http://127.0.0.1:5500',
-    //   'https://cotti-rodriguez-tp-programacion-iii-2025.onrender.com',
-    // ],
-    origin: '*',
+    origin: [
+      'http://localhost:5500',
+      'http://127.0.0.1:5500',
+      'https://cotti-rodriguez-tp-programacion-iii-2025.onrender.com',
+      'https://autoservicio-web-git-main-lucottis-projects.vercel.app/',
+      'https://autoservicio-web-lucottis-projects.vercel.app/',
+      'https://autoservicio-web.vercel.app/',
+      'https://autoservicio-n7r1d5maw-lucottis-projects.vercel.app/',
+    ],
+    // origin: '*',
   })
 );
 app.use('/public', express.static('public'));
