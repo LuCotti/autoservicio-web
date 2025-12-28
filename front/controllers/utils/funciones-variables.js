@@ -1,6 +1,7 @@
 import { Pagination } from './pagination.js';
 // ------------------------------ Variables ------------------------------
-const apiUrl = 'http://localhost:3000'; // Según el puerto de Express
+// const apiUrl = 'http://localhost:3000'; // Según el puerto de Express
+const apiUrl = 'https://autoservicio-web-back.onrender.com';
 const nombreEmpresa = 'Luciano Iluminación';
 const categoriaA = 'Farol';
 const categoriaB = 'Plafon';
@@ -39,7 +40,7 @@ async function irALogin(vista) {
 
 const page = Pagination({
   limit: 10,
-  baseURL: 'http://localhost:3000/producto',
+  baseURL: `${apiUrl}/producto`,
   containerId: 'products',
 
   // Cómo dibujar un producto
@@ -51,7 +52,7 @@ const page = Pagination({
     div.id = `div-producto-${p.id}`;
     div.classList.add('product');
     div.innerHTML = `
-      <img src="http://localhost:3000/uploads/${p.imagen}">
+      <img src="${apiUrl}/uploads/${p.imagen}">
       <p class="product-name">${p.nombre}</p>
       <p class="product-price">$${p.precio}</p>
       <p class="cuotas-p">6 cuotas sin interés de $${(p.precio / 6).toFixed(
