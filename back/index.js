@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 import cors from 'cors';
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 import administradorRouter from './routes/administrador.routes.js';
 import productoRouter from './routes/producto.routes.js';
 import ventaRouter from './routes/venta.routes.js';
@@ -32,6 +32,6 @@ app.use('/administrator', administradorRouter);
 app.use('/producto', productoRouter);
 app.use('/venta', ventaRouter);
 
-app.listen(port, () => {
-  console.log(`El server levantó en el puerto ${port}`);
+app.listen(PORT, () => {
+  console.log(`El server levantó en el puerto ${PORT}`);
 });
