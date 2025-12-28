@@ -15,6 +15,6 @@ const sequelize = new Sequelize(STRING_DB, {
     },
   },
 });
-// sequelize.sync();
+sequelize.sync({ alter: true });
 
 export default sequelize;
